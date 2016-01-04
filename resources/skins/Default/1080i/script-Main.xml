@@ -1,71 +1,931 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol always="true">5001</defaultcontrol>
-    <animation effect="fade" time="300">WindowClose</animation>
+    <allowoverlay>no</allowoverlay>
+    <defaultcontrol>901001</defaultcontrol>
     <controls>
         <control type="image">
-            <left>0</left>
-            <top>0</top>
+            <description>Normal Default Background Image</description>
+            <include>FullscreenDimensions</include>
+            <texture>special://skin/backgrounds/default_bg.jpg</texture>
+        </control>
+        <control type="videowindow">
+            <include>FullscreenDimensions</include>
+            <visible>Player.HasVideo</visible>
+        </control>
+        <control type="image">
             <width>1920</width>
             <height>1080</height>
-            <texture>dialogs/yesno/dialog_bg.png</texture>
-            <animation type="WindowOpen" reversible="false">
-                <effect type="fade" start="0" end="100" time="600" />
-                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
-            </animation>
-            <animation type="WindowClose" reversible="false">
-                <effect type="fade" end="0" start="100" time="200" />
-            </animation>
+            <texture>home/bg_home.png</texture>
         </control>
-        <control type="group">
-            <animation type="WindowOpen" reversible="false">
-                <effect type="fade" start="0" end="100" time="600" />
-                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+        <control type="wraplist" id="9000">
+            <description>Main menu</description>
+            <left>60</left>
+            <top>330</top>
+            <width>726</width>
+            <height>560</height>
+            <onleft condition="!IsEmpty(Container(9000).ListItem.Property(SubMenu))">9001</onleft>
+            <onright>9010</onright>
+            <onup>9000</onup>
+            <ondown>9000</ondown>
+            <pagecontrol>-</pagecontrol>
+            <scrolltime tween="sine">300</scrolltime>
+            <focusposition>1</focusposition>
+            <orientation>vertical</orientation>
+            <animation type="WindowOpen" reversible="true">
+                <effect type="slide" start="-500" end="0" time="300" easing="inout" tween="sine" />
+                <effect type="fade" start="0" end="100" time="300" />
             </animation>
-            <animation type="WindowClose" reversible="false">
-                <effect type="fade" end="0" start="100" time="200" />
+            <animation type="WindowClose" reversible="true">
+                <effect type="slide" end="-500" start="0" time="300" easing="inout" tween="sine" />
+                <effect type="fade" end="0" start="100" time="300" />
             </animation>
-            <control type="textbox" id="5000">
-                <left>633</left>
-                <top>447</top>
-                <width>680</width>
-                <height>66</height>
-                <align>center</align>
-                <font>font32_shs_regular</font>
-                <label />
-            </control>
-            <control type="grouplist">
-                <description>button list</description>
-                <left>705</left>
-                <top>556</top>
-                <width>1200</width>
-                <height>90</height>
-                <itemgap>65</itemgap>
-                <usecontrolcoords>true</usecontrolcoords>
-                <orientation>horizontal</orientation>
-                <control type="button" id="5001">
-                    <description>Confirm</description>
-                    <width>222</width>
-                    <height>80</height>
-                    <label />
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>font36_shs_regular</font>
-                    <textoffsetx>26</textoffsetx>
-                    <texturefocus>dialogs/yesno/fo.png</texturefocus>
-                    <texturenofocus>dialogs/yesno/nf.png</texturenofocus>
+            <animation type="Conditional" condition="ControlGroup(9010).HasFocus() | Control.HasFocus(9001)" reversible="true">
+                <effect type="slide" start="0" end="-500" time="200" easing="inout" tween="sine" />
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="90" width="726">
+                <control type="label">
+                    <left>50</left>
+                    <width>726</width>
+                    <height>32</height>
+                    <font>font32</font>
+                    <textcolor>white60</textcolor>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
                 </control>
-                <control type="button" id="5002">
-                    <description>Confirm</description>
-                    <width>222</width>
-                    <height>80</height>
-                    <label />
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>font36_shs_regular</font>
-                    <textoffsetx>26</textoffsetx>
-                    <texturefocus>dialogs/yesno/fo.png</texturefocus>
-                    <texturenofocus>dialogs/yesno/nf.png</texturenofocus>
+            </itemlayout>
+            <focusedlayout height="148" width="726">
+                <control type="button">
+                    <include>HiddenObject</include>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,1)">SetFocus(901001)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,1)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,2)">SetFocus(901002)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,2)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,3)">SetFocus(901003)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,3)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,4)">SetFocus(901004)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,4)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,5)">SetFocus(901005)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,5)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,6)">SetFocus(901006)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,6)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,7)">SetFocus(901007)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,7)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,8)">SetFocus(901008)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,8)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,9)">SetFocus(901009)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,9)">SetFocus(9000)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,10)">SetFocus(901010)</onfocus>
+                    <onfocus condition="StringCompare(Container(9000).CurrentItem,10)">SetFocus(9000)</onfocus>
+                    <enable>Control.HasFocus(9000)</enable>
+                </control>
+                <control type="label">
+                    <left>50</left>
+                    <width>726</width>
+                    <height>148</height>
+                    <font>font50</font>
+                    <aligny>top</aligny>
+                    <textoffsety>20</textoffsety>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item>
+                    <label>搜索</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>我的足迹</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>海幕精选</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>电影</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>电视剧</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>纪录片</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>付费专区</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+                <item>
+                    <label>优惠专区</label>
+                    <label2>Subtext</label2>
+                    <icon>video</icon>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                </item>
+            </content>
+        </control>
+        <control type="image">
+            <left>64</left>
+            <top>47</top>
+            <width>157</width>
+            <height>47</height>
+            <texture>provider_logo.png</texture>
+        </control>
+        <control type="grouplist" id="9010">
+            <left>0</left>
+            <top>573</top>
+            <width>1920</width>
+            <height>372</height>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <scrolltime tween="sine">300</scrolltime>
+            <onleft>noop</onleft>
+            <onright>noop</onright>
+            <onup>noop</onup>
+            <ondown>noop</ondown>
+            <animation type="WindowOpen" reversible="true">
+                <effect type="slide" start="0,500" end="0" time="300" easing="inout" tween="sine" />
+                <effect type="fade" start="0" end="100" time="300" />
+            </animation>
+            <animation type="WindowClose" reversible="true">
+                <effect type="slide" end="0,500" start="0" time="300" easing="inout" tween="sine" />
+                <effect type="fade" end="0" start="100" time="300" />
+            </animation>
+            <control type="group">
+                <width>1920</width>
+                <height>384</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,0)</visible>
+                <control type="list" id="901001">
+                    <description>Widgets 1</description>
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>384</height>
+                    <onleft>noop</onleft>
+                    <onright>noop</onright>
+                    <onup>noop</onup>
+                    <ondown>901002</ondown>
+                    <onback>noop</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901001).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="384" width="292">
+                        <control type="image">
+                            <left>12</left>
+                            <top>5</top>
+                            <width>268</width>
+                            <height>374</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="384" width="292">
+                        <control type="image">
+                            <left>12</left>
+                            <top>5</top>
+                            <width>268</width>
+                            <height>374</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>278</width>
+                            <height>384</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="5">home/widget_list_fo.png</bordertexture>
+                            <bordersize>5</bordersize>
+                            <visible>Control.HasFocus(901001)</visible>
+                        </control>
+                        <control type="image">
+                            <left>12</left>
+                            <top>5</top>
+                            <width>268</width>
+                            <height>374</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <visible>Control.HasFocus(901001)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <visible>Control.HasFocus(901001)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item>
+                            <label>影片1</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片2</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片3</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片4</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片5</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片6</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片7</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                        <item>
+                            <label>影片8</label>
+                            <icon>home/movie1.jpg</icon>
+                            <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                        </item>
+                    </content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,1)</visible>
+                <control type="fixedlist" id="901002">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>noop</onleft>
+                    <onright>noop</onright>
+                    <onup>901001</onup>
+                    <ondown>901003</ondown>
+                    <onback>noop</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901002).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901002)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901002)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901002)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,2)</visible>
+                <control type="fixedlist" id="901003">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901003).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901003)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901003)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901003)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,3)</visible>
+                <control type="fixedlist" id="901004">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901004).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901004)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901004)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901004)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,4)</visible>
+                <control type="fixedlist" id="901005">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901005).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901005)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901005)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901005)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,5)</visible>
+                <control type="fixedlist" id="901006">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901006).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901006)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901006)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901006)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,6)</visible>
+                <control type="fixedlist" id="901007">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901007).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901007)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901007)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901007)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
+                </control>
+            </control>
+            <control type="group">
+                <width>1920</width>
+                <height>372</height>
+                <visible>IntegerGreaterThan(Container(9000).NumItems,7)</visible>
+                <control type="fixedlist" id="901008">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>372</height>
+                    <onleft>9000</onleft>
+                    <onright>noop</onright>
+                    <onup>Info</onup>
+                    <ondown>noop</ondown>
+                    <onback>9000</onback>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime tween="sine">300</scrolltime>
+                    <focusposition>1</focusposition>
+                    <orientation>Horizontal</orientation>
+                    <animation effect="slide" start="0" end="-216" time="200" easing="inout" tween="sine" condition="StringCompare(Container(901008).CurrentItem,1) + !ControlGroup(9010).HasFocus()" reversible="true">Conditonal</animation>
+                    <itemlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="372" width="216">
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="home/widget_diffuse.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <width>270</width>
+                            <height>372</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$INFO[ListItem.Icon]</texture>
+                            <bordertexture border="33">home/widget_list_fo.png</bordertexture>
+                            <bordersize>33</bordersize>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901008)</visible>
+                        </control>
+                        <control type="image">
+                            <left>33</left>
+                            <top>33</top>
+                            <width>204</width>
+                            <height>306</height>
+                            <texture>home/widget_list_overlay.png</texture>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150" />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="auto" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150" />
+                            </animation>
+                            <visible>Control.HasFocus(901008)</visible>
+                        </control>
+                        <control type="label">
+                            <left>135</left>
+                            <top>306</top>
+                            <width>188</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <font>font28</font>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <animation type="Focus" reversible="false">
+                                <effect type="zoom" start="100" end="114" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="0" end="100" time="150"  />
+                            </animation>
+                            <animation type="UnFocus" reversible="false">
+                                <effect type="zoom" start="114" end="100" center="135,260" easing="inout" tween="sine" time="150" />
+                                <effect type="fade" start="100" end="0" time="150"  />
+                            </animation>
+                            <visible>Control.HasFocus(901008)</visible>
+                        </control>
+                    </focusedlayout>
+                    <content>videodb://recentlyaddedmovies/</content>
                 </control>
             </control>
         </control>
