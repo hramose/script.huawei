@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">1000</defaultcontrol>
+    <controls>
+        <control type="panel" id="1000">
+            <left>286</left>
+            <top>285</top>
+            <width>1719</width>
+            <height>769</height>
+            <onright>noop</onright>
+            <onleft>Dialog.Close(script-PersonalCenterDialog.xml)</onleft>
+            <orientation>horizontal</orientation>
+            <scrolltime tween="quadratic" easing="out">400</scrolltime>
+            <visible>!Window.IsActive(script-ChatHistoryDialog.xml)</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <itemlayout width="430" height="444">
+                <control type="image">
+                    <left>8</left>
+                    <top>83</top>
+                    <width>416</width>
+                    <height>278</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                </control>
+            </itemlayout>
+            <focusedlayout width="430" height="444">
+                <control type="image">
+                    <left>-75</left>
+                    <width>582</width>
+                    <height>444</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                    <bordertexture border="83">views/list/thumb_list_shadow.png</bordertexture>
+                    <bordersize>83</bordersize>
+                    <animation type="Focus" reversible="false">
+                        <effect type="fade" start="0" end="100" time="200" />
+                        <effect type="zoom" center="208,260" start="100" end="125" time="200" tween="quadratic"  />
+                    </animation>
+                    <animation type="UnFocus" reversible="false">
+                        <effect type="fade" start="100" end="0" time="200" />
+                        <effect type="zoom" center="208,260" start="125" end="100" time="200" tween="quadratic"  />
+                    </animation>
+                </control>
+                <control type="image">
+                    <left>8</left>
+                    <top>83</top>
+                    <width>416</width>
+                    <height>278</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" center="208,260" start="100" end="125" time="200" tween="quadratic"  />
+                    </animation>
+                    <animation type="UnFocus" reversible="false">
+                        <effect type="zoom" center="208,260" start="125" end="100" time="200" tween="quadratic"  />
+                    </animation>
+                </control>
+            </focusedlayout>
+        </control>
+        <control type="image">
+            <left>1890</left>
+            <top>0</top>
+            <width>30</width>
+            <height>1080</height>
+            <texture>views/panel/panel_shade.png</texture>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+        </control>
+    </controls>
+</window>

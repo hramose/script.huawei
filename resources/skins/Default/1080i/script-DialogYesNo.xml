@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">5002</defaultcontrol>
+    <animation effect="fade" time="300">WindowClose</animation>
+    <controls>
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture>dialogs/keyboard/dialog_bg.png</texture>
+            <animation effect="fade" time="300">WindowOpen</animation>
+            <animation effect="fade" time="300">WindowClose</animation>
+        </control>
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <control type="image">
+                <left>630</left>
+                <top>391</top>
+                <width>659</width>
+                <height>308</height>
+                <texture border="90">views/search/list_right_outline.png</texture>
+                <animation effect="fade" time="300">WindowOpen</animation>
+            </control>
+            <control type="image">
+                <description>Searchbox bg</description>
+                <left>633</left>
+                <top>478</top>
+                <width>654</width>
+                <height>218</height>
+                <texture>dialogs/keyboard/buttons_bg.png</texture>
+            </control>
+            <control type="textbox">
+                <left>633</left>
+                <top>477</top>
+                <width>653</width>
+                <height>66</height>
+                <align>center</align>
+                <font>font32_shs_regular</font>
+                <label>确认注销登入?</label>
+            </control>
+            <control type="grouplist">
+                <left>761</left>
+                <top>565</top>
+                <width>900</width>
+                <height>118</height>
+                <onleft>noop</onleft>
+                <onright>noop</onright>
+                <itemgap>22</itemgap>
+                <orientation>horizontal</orientation>
+                <control type="button" id="5001">
+                    <description>Confirm</description>
+                    <width>188</width>
+                    <height>118</height>
+                    <label>确认</label>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <textoffsetx>26</textoffsetx>
+                    <texturefocus>views/vip/button_fo.png</texturefocus>
+                    <texturenofocus>views/vip/button_nf.png</texturenofocus>
+                </control>
+                <control type="button" id="5002">
+                    <description>Cancel</description>
+                    <width>188</width>
+                    <height>118</height>
+                    <label>取消</label>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <textoffsetx>26</textoffsetx>
+                    <texturefocus>views/vip/button_fo.png</texturefocus>
+                    <texturenofocus>views/vip/button_nf.png</texturenofocus>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

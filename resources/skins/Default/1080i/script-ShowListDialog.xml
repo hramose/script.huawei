@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">2000</defaultcontrol>
+    <controls>
+        <control type="image">
+            <left>235</left>
+            <top>0</top>
+            <width>1686</width>
+            <height>1080</height>
+            <texture>backgrounds/bg_favouriteshows.jpg</texture>
+            <visible>!IsEmpty(Window.Property(ShowList.Favourite)) + IsEmpty(Window.Property(ShowList.None))</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+        </control>
+        <control type="panel" id="2000">
+            <left>286</left>
+            <top>285</top>
+            <width>1719</width>
+            <height>769</height>
+            <onleft>noop</onleft>
+            <onright>noop</onright>
+            <orientation>horizontal</orientation>
+            <scrolltime tween="quadratic" easing="out">400</scrolltime>
+            <preloaditems>2</preloaditems>
+            <visible>IsEmpty(Window.Property(ShowList.None))</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <itemlayout width="430" height="325">
+                <control type="image">
+                    <left>8</left>
+                    <top>83</top>
+                    <width>416</width>
+                    <height>278</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                </control>
+            </itemlayout>
+            <focusedlayout width="430" height="325">
+                <control type="image">
+                    <left>-75</left>
+                    <width>582</width>
+                    <height>444</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                    <bordertexture border="83">views/list/thumb_list_shadow.png</bordertexture>
+                    <bordersize>83</bordersize>
+                    <animation type="Focus" reversible="false">
+                        <effect type="fade" start="0" end="100" time="200" />
+                        <effect type="zoom" center="208,260" start="100" end="125" time="200" tween="quadratic"  />
+                    </animation>
+                    <animation type="UnFocus" reversible="false">
+                        <effect type="fade" start="100" end="0" time="200" />
+                        <effect type="zoom" center="208,260" start="125" end="100" time="200" tween="quadratic"  />
+                    </animation>
+                </control>
+                <control type="image">
+                    <left>8</left>
+                    <top>83</top>
+                    <width>416</width>
+                    <height>278</height>
+                    <texture>$INFO[ListItem.Icon]</texture>
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" center="208,260" start="100" end="125" time="200" tween="quadratic"  />
+                    </animation>
+                    <animation type="UnFocus" reversible="false">
+                        <effect type="zoom" center="208,260" start="125" end="100" time="200" tween="quadratic"  />
+                    </animation>
+                </control>
+                <control type="group">
+                    <animation type="Focus" reversible="false">
+                        <effect type="fade" start="0" end="100" time="200" />
+                        <effect type="zoom" center="208,260" start="100" end="125" time="200" tween="quadratic"  />
+                    </animation>
+                    <animation type="UnFocus" reversible="false">
+                        <effect type="fade" start="100" end="0" time="200" />
+                        <effect type="zoom" center="208,260" start="125" end="100" time="200" tween="quadratic"  />
+                    </animation>
+                    <control type="image">
+                        <description>Play Icon</description>
+                        <left>180</left>
+                        <top>186</top>
+                        <width>72</width>
+                        <height>72</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>common/icon_panel_play.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>83</top>
+                        <width>416</width>
+                        <height>278</height>
+                        <texture>views/panel/panel_thumb_overlay.png</texture>
+                    </control>
+                    <control type="label">
+                        <description>Header label</description>
+                        <left>216</left>
+                        <top>300</top>
+                        <width>416</width>
+                        <height>40</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font36_shs_regular</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </control>
+            </focusedlayout>
+        </control>
+        <control type="group">
+            <visible>!IsEmpty(Window.Property(ShowList.None))</visible>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>1080</height>
+                <texture>dialogs/yesno/dialog_bg.png</texture>
+                <animation effect="fade" time="300">WindowOpen</animation>
+                <animation effect="fade" time="300">WindowClose</animation>
+            </control>
+            <control type="group">
+                <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" end="0" start="100" time="200" />
+                </animation>
+                <control type="textbox">
+                    <left>633</left>
+                    <top>447</top>
+                    <width>680</width>
+                    <height>66</height>
+                    <align>center</align>
+                    <font>font32_shs_regular</font>
+                    <label>您还没有收藏节目哦!</label>
+                </control>
+                <control type="grouplist">
+                    <description>button list</description>
+                    <left>845</left>
+                    <top>556</top>
+                    <width>1200</width>
+                    <height>90</height>
+                    <itemgap>65</itemgap>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <orientation>horizontal</orientation>
+                    <control type="button" id="2100">
+                        <description>Confirm</description>
+                        <width>222</width>
+                        <height>80</height>
+                        <label>返回</label>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font36_shs_regular</font>
+                        <textoffsetx>26</textoffsetx>
+                        <texturefocus>dialogs/yesno/fo.png</texturefocus>
+                        <texturenofocus>dialogs/yesno/nf.png</texturenofocus>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <control type="image">
+            <left>1890</left>
+            <top>0</top>
+            <width>30</width>
+            <height>1080</height>
+            <texture>views/panel/panel_shade.png</texture>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+        </control>
+    </controls>
+</window>

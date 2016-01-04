@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">5001</defaultcontrol>
+    <animation effect="fade" time="300">WindowClose</animation>
+    <controls>
+        <control type="group">
+            <animation effect="fade" time="300">WindowOpen</animation>
+            <control type="image">
+                <description>Normal Default Background Image</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>1080</height>
+                <texture>backgrounds/bg_message.jpg</texture>
+                <animation effect="fade" time="300">WindowOpen</animation>
+            </control>
+            <control type="image">
+                <description>Header arrow</description>
+                <left>80</left>
+                <top>135</top>
+                <width>22</width>
+                <height>48</height>
+                <texture>views/watchlist/header_arrow_back.png</texture>
+            </control>
+            <control type="label">
+                <description>Header label</description>
+                <left>120</left>
+                <top>133</top>
+                <width>250</width>
+                <height>50</height>
+                <aligny>center</aligny>
+                <font>font48_shs_regular</font>
+                <label>个人中心</label>
+            </control>
+        </control>
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <control type="image">
+                <left>960</left>
+                <top>473</top>
+                <width>600</width>
+                <height>300</height>
+                <texture border="90" colordiffuse="33FFFFFF">views/search/list_right_outline.png</texture>
+                <animation effect="fade" time="300">WindowOpen</animation>
+            </control>
+            <control type="label">
+                <left>960</left>
+                <top>471</top>
+                <width>600</width>
+                <height>92</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font36_shs_regular</font>
+                <textoffsetx>26</textoffsetx>
+                <label>用户权益</label>
+            </control>
+            <control type="group">
+                <description>left labels</description>
+                <left>1098</left>
+                <top>582</top>
+                <control type="label">
+                    <width>450</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>1. 7x24小时播放观看</label>
+                </control>
+                <control type="label">
+                    <top>60</top>
+                    <width>450</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>2. 多屏互通的播放互动</label>
+                </control>
+                <control type="label">
+                    <top>120</top>
+                    <width>450</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>3. 海量独家数据解读</label>
+                </control>
+            </control>
+            <control type="image">
+                <description>List divider</description>
+                <left>360</left>
+                <top>873</top>
+                <width>1200</width>
+                <height>2</height>
+                <texture>views/watchlist/list_divider.png</texture>
+            </control>
+            <control type="grouplist">
+                <left>341</left>
+                <top>273</top>
+                <width>900</width>
+                <height>118</height>
+                <onleft>noop</onleft>
+                <onright>noop</onright>
+                <itemgap>112</itemgap>
+                <orientation>horizontal</orientation>
+                <control type="button" id="5001">
+                    <description>Activation Card</description>
+                    <width>338</width>
+                    <height>118</height>
+                    <label>激活卡</label>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <textoffsetx>26</textoffsetx>
+                    <texturefocus>views/vip/button_fo.png</texturefocus>
+                    <texturenofocus>views/vip/button_nf.png</texturenofocus>
+                </control>
+                <control type="button" id="5002">
+                    <description>Logout</description>
+                    <width>338</width>
+                    <height>118</height>
+                    <label>注销登入</label>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <textoffsetx>26</textoffsetx>
+                    <texturefocus>views/vip/button_fo.png</texturefocus>
+                    <texturenofocus>views/vip/button_nf.png</texturenofocus>
+                </control>
+            </control>
+            <control type="group">
+                <description>left labels</description>
+                <left>358</left>
+                <top>497</top>
+                <control type="label">
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <label>用户名:</label>
+                </control>
+                <control type="label">
+                    <top>60</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <label>订购时间:</label>
+                </control>
+                <control type="label">
+                    <top>120</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <label>到期时间:</label>
+                </control>
+                <control type="label">
+                    <top>180</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font36_shs_regular</font>
+                    <label>绑定手机:</label>
+                </control>
+            </control>
+            <control type="group">
+                <description>Right labels</description>
+                <left>555</left>
+                <top>497</top>
+                <control type="label" id="600">
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>未登录</label>
+                </control>
+                <control type="label" id="601">
+                    <top>60</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>未登录</label>
+                </control>
+                <control type="label" id="602">
+                    <top>120</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>未登录</label>
+                </control>
+                <control type="label" id="603">
+                    <top>180</top>
+                    <width>600</width>
+                    <height>36</height>
+                    <aligny>center</aligny>
+                    <font>font32_shs_regular</font>
+                    <label>未登录</label>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

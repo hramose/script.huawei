@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <zorder>2</zorder>
+    <controls>
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture>dialogs/keyboard/dialog_bg.png</texture>
+            <animation effect="fade" time="300">WindowOpen</animation>
+            <animation effect="fade" time="300">WindowClose</animation>
+        </control>
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <control type="image">
+                <left>536</left>
+                <top>274</top>
+                <width>849</width>
+                <height>529</height>
+                <texture>views/vip/qr_bg.png</texture>
+            </control>
+            <control type="image" id="300">
+                <description>buy 1 year QR</description>
+                <left>641</left>
+                <top>440</top>
+                <width>226</width>
+                <height>224</height>
+                <texture>views/vip/qr_dummy.png</texture>
+            </control>
+            <control type="image" id="301">
+                <description>buy 3 year QR</description>
+                <left>1044</left>
+                <top>440</top>
+                <width>226</width>
+                <height>224</height>
+                <texture>views/vip/qr_dummy.png</texture>
+            </control>
+            <control type="label">
+                <description>Header label</description>
+                <left>538</left>
+                <top>276</top>
+                <width>844</width>
+                <height>82</height>
+                <font>font32_shs_regular</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <label>手机扫码，完成支付</label>
+            </control>
+            <control type="label">
+                <description>QR1 label</description>
+                <left>538</left>
+                <top>664</top>
+                <width>422</width>
+                <height>95</height>
+                <font>font32_shs_regular</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <label>360元/1年</label>
+            </control>
+            <control type="label">
+                <description>QR1 label</description>
+                <left>960</left>
+                <top>664</top>
+                <width>422</width>
+                <height>95</height>
+                <font>font32_shs_regular</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <label>980元/3年 (原价1080)</label>
+            </control>
+        </control>
+    </controls>
+</window>

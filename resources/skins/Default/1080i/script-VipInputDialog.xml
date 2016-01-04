@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <zorder>2</zorder>
+    <controls>
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture>dialogs/keyboard/dialog_bg.png</texture>
+            <animation effect="fade" time="300">WindowOpen</animation>
+            <animation effect="fade" time="300">WindowClose</animation>
+        </control>
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="600" />
+                <effect type="slide" start="0,800" end="0" time="600" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" />
+            </animation>
+            <control type="image">
+                <left>630</left>
+                <top>146</top>
+                <width>660</width>
+                <height>846</height>
+                <texture border="90">views/search/list_right_outline.png</texture>
+                <animation effect="fade" time="300">WindowOpen</animation>
+            </control>
+            <control type="image">
+                <description>Searchbox bg</description>
+                <left>633</left>
+                <top>233</top>
+                <width>654</width>
+                <height>756</height>
+                <texture>dialogs/keyboard/buttons_bg.png</texture>
+            </control>
+            <control type="image">
+                <description>Searchbox image</description>
+                <left>677</left>
+                <top>362</top>
+                <width>566</width>
+                <height>100</height>
+                <texture>views/search/keyboard/search_box.png</texture>
+            </control>
+            <control type="label" id="600">
+                <description>Searchbox label</description>
+                <left>677</left>
+                <top>362</top>
+                <width>566</width>
+                <height>100</height>
+                <aligny>center</aligny>
+                <font>font36_shs_regular</font>
+                <textoffsetx>26</textoffsetx>
+                <label>...</label>
+            </control>
+            <control type="label">
+                <left>633</left>
+                <top>232</top>
+                <width>653</width>
+                <height>118</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font32_shs_regular</font>
+                <label>请输入您激活卡上的15位密码[CR]点击确认激活</label>
+            </control>
+            <control type="panel" id="9000">
+                <left>658</left>
+                <top>450</top>
+                <width>594</width>
+                <height>500</height>
+                <onup>noop</onup>
+                <ondown>9001</ondown>
+                <orientation>vertical</orientation>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout width="145" height="137">
+                    <control type="image">
+                        <width>171</width>
+                        <height>171</height>
+                        <texture border="31">views/search/keyboard/key_nf.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>86</left>
+                        <width>171</width>
+                        <height>171</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textoffsetx>31</textoffsetx>
+                        <font>font40_shs_regular</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="145" height="137">
+                    <control type="image">
+                        <width>171</width>
+                        <height>171</height>
+                        <texture border="31">views/search/keyboard/key_fo.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>86</left>
+                        <width>171</width>
+                        <height>171</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textoffsetx>31</textoffsetx>
+                        <font>font40_shs_regular</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="button" id="9001">
+                <description>Confirm</description>
+                <left>781</left>
+                <top>866</top>
+                <width>357</width>
+                <height>138</height>
+                <onup>9000</onup>
+                <label>确认激活</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font36_shs_regular</font>
+                <textoffsetx>26</textoffsetx>
+                <texturefocus border="35">views/search/keyboard/key_fo.png</texturefocus>
+                <texturenofocus border="35">views/search/keyboard/key_nf.png</texturenofocus>
+            </control>
+        </control>
+    </controls>
+</window>
