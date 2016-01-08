@@ -61,9 +61,9 @@ class WindowManager(object):
         """
         open main menu, deal with window stack
         """
-        from WindowSearch import searchWindowUI
+        from WindowSearch import SearchWindowUI
         xbmc.executebuiltin("ActivateWindow(busydialog)")
-        dialog = searchWindowUI(VIDEOSEARCH_XML, ADDON_PATH)
+        dialog = SearchWindowUI(VIDEOSEARCH_XML, ADDON_PATH)
         xbmc.executebuiltin("Dialog.Close(busydialog)")
         self.open_dialog(dialog, prev_window)
 
