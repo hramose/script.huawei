@@ -11,6 +11,7 @@ ADDON_NAME = ADDON.getAddonInfo('name')
 ADDON_PATH = ADDON.getAddonInfo('path').decode("utf-8")
 MAINMENU_XML = "script-Main.xml"
 VIDEOCHANNEL_XML = "script-VideoChannel.xml"
+VIDEOSEARCH_XML = "script-Search.xml"
 
 YESNO_XML = "script-DialogYesNo.xml"
 CONFIRM_XML = "script-ConfirmDialog.xml"
@@ -60,9 +61,9 @@ class WindowManager(object):
         """
         open main menu, deal with window stack
         """
-        from dialogs.search import SearchWindow
+        from WindowSearch import searchWindowUI
         xbmc.executebuiltin("ActivateWindow(busydialog)")
-        dialog = Channel(VIDEOCHANNEL_XML, ADDON_PATH)
+        dialog = searchWindowUI(VIDEOSEARCH_XML, ADDON_PATH)
         xbmc.executebuiltin("Dialog.Close(busydialog)")
         self.open_dialog(dialog, prev_window)
 

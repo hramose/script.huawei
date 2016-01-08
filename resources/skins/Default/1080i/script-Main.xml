@@ -218,55 +218,12 @@
             <orientation>vertical</orientation>
             <itemlayout/>
             <focusedlayout/>
-            <content>
-                <item>
-                    <label>搜索</label>
-                    <icon>home/search</icon>
-                    <onclick>noop</onclick>
-                </item>
-                <item>
-                    <label>我的足迹</label>
-                    <icon>home/mine</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>海幕精选</label>
-                    <icon>home/chosen</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>电影</label>
-                    <icon>home/movie</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>电视剧</label>
-                    <icon>home/tv</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>纪录片</label>
-                    <icon>home/doco</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>付费专区</label>
-                    <icon>home/pay</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-                <item>
-                    <label>优惠专区</label>
-                    <icon>home/sale</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                </item>
-            </content>
         </control>
         <control type="button" id="9001">
             <left>-100</left>
             <width>10</width>
             <height>10</height>
             <ondown>901001</ondown>
-            <onclick>search</onclick>
         </control>
         <control type="group">
             <left>90</left>
@@ -576,37 +533,6 @@
                                 <visible>Control.HasFocus(901001)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>爱你，罗茜</label>
-                                <label2>89:00[COLOR=B2F0F0F0]/89:00[/COLOR]</label2>
-                                <icon>home/movie1.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>芈月传</label>
-                                <label2>更新至 20集</label2>
-                                <icon>home/movie1.jpg</icon>
-                                <property name="update">true</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>花千骨</label>
-                                <label2>播放至 20集</label2>
-                                <icon>home/movie1.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie1.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie1.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -756,53 +682,6 @@
                                 <visible>Control.HasFocus(901002)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>007幽灵党</label>
-                                <label2>8.5分</label2>
-                                <icon>home/movie2.jpg</icon>
-                                <property name="bg">home/movie1_bg.jpg</property>
-                                <property name="subtitle">开启邦德时刻 珠宝佳人美到心醉</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>芈月传</label>
-                                <label2>更新至 20集</label2>
-                                <icon>home/movie2.jpg</icon>
-                                <property name="update">true</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie2.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -952,49 +831,6 @@
                                 <visible>Control.HasFocus(901003)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>全部影片</label>
-                                <icon>home/movie_more.png</icon>
-                                <property name="type">channel</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片2</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie3.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -1144,49 +980,6 @@
                                 <visible>Control.HasFocus(901004)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>全部电视剧</label>
-                                <icon>home/tv_more.png</icon>
-                                <property name="type">channel</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片2</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie4.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -1336,49 +1129,6 @@
                                 <visible>Control.HasFocus(901005)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>全部纪录片</label>
-                                <icon>home/doco_more.png</icon>
-                                <property name="type">channel</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片2</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie5.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -1528,49 +1278,6 @@
                                 <visible>Control.HasFocus(901006)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>全部付费</label>
-                                <icon>home/pay_more.png</icon>
-                                <property name="type">channel</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片2</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie6.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
                 <control type="group">
@@ -1719,49 +1426,6 @@
                                 <visible>Control.HasFocus(901007)</visible>
                             </control>
                         </focusedlayout>
-                        <content>
-                            <item>
-                                <label>全部优惠</label>
-                                <icon>home/sale_more.png</icon>
-                                <property name="type">channel</property>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片2</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片3</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片4</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片5</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片6</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片7</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                            <item>
-                                <label>影片8</label>
-                                <icon>home/movie7.jpg</icon>
-                                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                            </item>
-                        </content>
                     </control>
                 </control>
             </control>
