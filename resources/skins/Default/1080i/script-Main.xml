@@ -222,7 +222,7 @@
                 <item>
                     <label>搜索</label>
                     <icon>home/search</icon>
-                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                    <onclick>noop</onclick>
                 </item>
                 <item>
                     <label>我的足迹</label>

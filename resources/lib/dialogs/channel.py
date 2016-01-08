@@ -3,39 +3,36 @@
 from Utils import *
 from Utils import GlobalProperty as GP
 from OnClickHandler import OnClickHandler
-import VideoPlayer
 from BaseClasses import *
 from WindowManager import wm
-import time
 from dialogs.DialogBaseInfo import DialogBaseInfo
 
-PLAYER = VideoPlayer.VideoPlayer()
 ch = OnClickHandler()
-C_LIST_MAINMENU = 1000
-C_LIST_SHOW = 2000
-C_LABEL_TIME = 2100
+C_BUTTON_SEARCH = 300
+C_LIST_SHOW = 1000
+C_LABEL_TIME = 2000
 
 
-class MainMenu(WindowXML, DialogBaseInfo):
+class Channel(WindowXML, DialogBaseInfo):
 
     def __init__(self, *args, **kwargs):
-        super(MainMenu, self).__init__(*args, **kwargs)
+        super(Channel, self).__init__(*args, **kwargs)
 
     @busy_dialog
     def onInit(self):
         pass
 
     def onAction(self, action):
-        super(MainMenu, self).onAction(action)
+        super(Channel, self).onAction(action)
         ch.serve_action(action, self.getFocusId(), self)
 
     def onClick(self, control_id):
-        super(MainMenu, self).onClick(control_id)
+        super(Channel, self).onClick(control_id)
         ch.serve(control_id, self)
 
-    @ch.click(9004)
+    @ch.click(C_BUTTON_SEARCH)
     def click_channel(self):
-        wm.open_channel()
+        wm.open_search()
 
     @ch.action("back", "*")
     @ch.action("previousmenu", "*")
