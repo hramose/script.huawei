@@ -6,6 +6,9 @@ import xbmcgui
 
 class searchWindowUI(xbmcgui.WindowXML):
 
+    ACTION_PREVIOUS_MENU = [9, 92]
+    ACTION_EXIT_SCRIPT = [13, 10]
+
     ID_EDIT  = 9201
     ID_LETTER  = 9202
     ID_NUMBER  = 9203
@@ -19,7 +22,7 @@ class searchWindowUI(xbmcgui.WindowXML):
     ID_MOVIE_NUM = 9242
     ID_CARTOON_NUM = 9255
     ID_RESULT_PAGE = 9233
-    ID_SEARCH_BG = 9210
+    ID_SEARCH_BG = 9211
     ID_KEYBOARD = 9212
     
     VAL_DEL = 'del'
@@ -73,7 +76,8 @@ class searchWindowUI(xbmcgui.WindowXML):
             self.hotSearch.addItem(info)
 
     def onAction(self, action):
-        pass
+        if action.getId() in self.ACTION_PREVIOUS_MENU + self.ACTION_EXIT_SCRIPT:
+            self.close()
 
     def onClick(self, controlId):
         print('nenaTest_ searchWindowUI onClick: ', controlId)

@@ -15,13 +15,16 @@
 			<animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
 			<control type="group">
 				<width>1000</width>
-				<control type="image">
-					<visible>!Control.hasFocus(9201)</visible>
-					<description>edit box bg</description>
-					<width>678</width>
-					<height>96</height>
-					<texture>search/search_bg.png</texture>
-				</control>
+                <control type="button" id="9211">
+                    <description>edit bg</description>
+                    <width>678</width>
+                    <height>96</height>
+                    <ondown>9202</ondown>
+                    <onright condition="IsEmpty(Control.GetLabel(9201))">9221</onright>
+                    <onright condition="!IsEmpty(Control.GetLabel(9201))">9231</onright>
+                    <texturefocus>search/search_bg_fo.png</texturefocus>
+                    <texturenofocus>search/search_bg.png</texturenofocus>
+                </control>
 				<control type="image">
 					<visible>Control.hasFocus(9201)</visible>
 					<description>edit box bg</description>
@@ -61,7 +64,7 @@
 			<control type="group" id="9212">
 				<width>1000</width>
 				<control type="panel" id="9202">
-					<description>list of alphabet</description>
+					<description>list of key</description>
 					<top>195</top>
 					<left>32</left>
 					<width>700</width>
@@ -69,7 +72,7 @@
 					<onleft>noop</onleft>
 					<onright condition="IsEmpty(Control.GetLabel(9201))">9221</onright>
 					<onright condition="!IsEmpty(Control.GetLabel(9201))">9231</onright>
-					<onup>9201</onup>
+					<onup>9211</onup>
 					<ondown>9203</ondown>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime tween="sine">300</scrolltime>
@@ -376,7 +379,6 @@
 						<width>604</width>
 						<height>2</height>
 						<top>88</top>
-						<!-- <visible></visible> -->
 						<texture>search/split_line.png</texture>
 					</control>
 				</itemlayout>
