@@ -84,31 +84,26 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
         self.close()
 
     def onClick(self, control_id):
-        super(Channel, self).onClick(control_id)
+        super(SearchWindowUI, self).onClick(control_id)
         ch.serve(control_id, self)
 
     @ch.click(ID_LETTER)
-    def click_keyboard_letter(self):
-        self.dealKeyboard(self.ID_LETTER)
-
     @ch.click(ID_NUMBER)
-    def click_keyboard_number(self):
-        self.dealKeyboard(self.ID_NUMBER)
+    def click_keyboard_letter(self):
+        self.dealKeyboard()
 
     @ch.click(ID_SEARCH_WORD)
-    def click_channel(self):
+    def click_search_word(self):
         self.getSearchWord()
         self.getSearchResultList()
         self.setFocusId(self.ID_RESULT_MOVIE)
 
     @ch.click(ID_SEARCH_BG)
-    def click_channel(self):
+    def click_search_edit(self):
         self.setFocusId(self.ID_KEYBOARD)
 
-    def dealKeyboard(self, controlId):
-        control = self.getControl(controlId)
-        item = control.getSelectedItem()
-        label = item.getLabel()
+    def dealKeyboard(self):
+        label = self.listitem.getLabel()
         print('nenaTest_ onClick label', label)
         if label == self.VAL_DEL:
             print('nenaTest_ do del')
@@ -131,9 +126,7 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
     # get search word list now focus item label
     def getSearchWord(self):
-        control = self.getControl(self.ID_SEARCH_WORD)
-        item = control.getSelectedItem()
-        label = item.getLabel()
+        label = self.listitem.getLabel()
         self.searchWord = label
         print('nenaTest_ onClick self.searchWord', self.searchWord)
 
