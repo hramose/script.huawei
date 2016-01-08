@@ -3,8 +3,11 @@
 
 import xbmc
 import xbmcgui
+from dialogs.DialogBaseInfo import DialogBaseInfo
+from OnClickHandler import OnClickHandler
+ch = OnClickHandler()
 
-class searchWindowUI(xbmcgui.WindowXML):
+class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
     ID_EDIT  = 9201
     ID_LETTER  = 9202
@@ -19,26 +22,26 @@ class searchWindowUI(xbmcgui.WindowXML):
     ID_MOVIE_NUM = 9242
     ID_CARTOON_NUM = 9255
     ID_RESULT_PAGE = 9233
-    ID_SEARCH_BG = 9210
+    ID_SEARCH_BG = 9211
     ID_KEYBOARD = 9212
     
     VAL_DEL = 'del'
 
     def __init__(self, *args, **kwargs):
-        print('nenaTest_ searchWindowUI __init__: ')
+        print('nenaTest_ SearchWindowUI __init__: ')
 
     def onInit(self):
-        print('nenaTest_ searchWindowUI onInit: ')
+        print('nenaTest_ SearchWindowUI onInit: ')
         self.searchKey = ''
         self.searchWord = ''
         self.TEXT_VAL = True
-        print('nenaTest_ searchWindowUI onInit: ', self.TEXT_VAL)
+        print('nenaTest_ SearchWindowUI onInit: ', self.TEXT_VAL)
         self.addData()
         self.setFocusId(self.ID_LETTER)
 
     # add data of keyboard and hot search list
     def addData(self):
-        print('nenaTest_ searchWindowUI addData: ')
+        print('nenaTest_ SearchWindowUI addData: ')
         dataLetter = []
         dataLetter = [
         'A','B','C','D','E','F','G',
@@ -73,54 +76,63 @@ class searchWindowUI(xbmcgui.WindowXML):
             self.hotSearch.addItem(info)
 
     def onAction(self, action):
-        pass
+        super(SearchWindowUI, self).onAction(action)
+        ch.serve_action(action, self.getFocusId(), self)
 
-    def onClick(self, controlId):
-        print('nenaTest_ searchWindowUI onClick: ', controlId)
+    @ch.action("back", "*")
+    def exit_script(self):
+        self.close()
 
-        if controlId == self.ID_LETTER or controlId == self.ID_NUMBER:
-            control = self.getControl(controlId)
-            item = control.getSelectedItem()
-            label = item.getLabel()
-            print('nenaTest_ onClick label', label)
-            if label == self.VAL_DEL:
-                print('nenaTest_ do del')
-                editbox = self.getControl(self.ID_EDIT)
-                self.searchKey = editbox.getLabel()
-                self.searchKey = self.searchKey[0:-1]
-                editbox.setLabel(self.searchKey)
-            else:
-                print('nenaTest_ do appendText')
-                self.appendText(label)
-            self.getSearchWordList();
-            self.getSearchResultList()
+    def onClick(self, control_id):
+        super(SearchWindowUI, self).onClick(control_id)
+        ch.serve(control_id, self)
 
-        elif controlId == self.ID_SEARCH_WORD:
-            self.getSearchWord()
-            self.getSearchResultList()
-            self.setFocusId(self.ID_RESULT_MOVIE)
+    @ch.click(ID_LETTER)
+    @ch.click(ID_NUMBER)
+    def click_keyboard_letter(self):
+        self.dealKeyboard()
 
-        elif controlId == self.ID_SEARCH_BG:
-            self.setFocusId(self.ID_KEYBOARD)
+    @ch.click(ID_SEARCH_WORD)
+    def click_search_word(self):
+        self.getSearchWord()
+        self.getSearchResultList()
+        self.setFocusId(self.ID_RESULT_MOVIE)
+
+    @ch.click(ID_SEARCH_BG)
+    def click_search_edit(self):
+        self.setFocusId(self.ID_KEYBOARD)
+
+    def dealKeyboard(self):
+        label = self.listitem.getLabel()
+        print('nenaTest_ onClick label', label)
+        if label == self.VAL_DEL:
+            print('nenaTest_ do del')
+            editbox = self.getControl(self.ID_EDIT)
+            self.searchKey = editbox.getLabel()
+            self.searchKey = self.searchKey[0:-1]
+            editbox.setLabel(self.searchKey)
+        else:
+            print('nenaTest_ do appendText')
+            self.appendText(label)
+        self.getSearchWordList()
+        self.getSearchResultList()
 
     # append search key to show editbox content
     def appendText(self, char):
-        print('nenaTest_ searchWindowUI appendText')
+        print('nenaTest_ SearchWindowUI appendText')
         editbox = self.getControl(self.ID_EDIT)
         self.searchKey = editbox.getLabel() + char
         editbox.setLabel(self.searchKey)
 
     # get search word list now focus item label
     def getSearchWord(self):
-        control = self.getControl(self.ID_SEARCH_WORD)
-        item = control.getSelectedItem()
-        label = item.getLabel()
+        label = self.listitem.getLabel()
         self.searchWord = label
         print('nenaTest_ onClick self.searchWord', self.searchWord)
 
     # get search word list for key
     def getSearchWordList(self):
-        print('nenaTest_ searchWindowUI getSearchWordList: ', self.searchKey)
+        print('nenaTest_ SearchWindowUI getSearchWordList: ', self.searchKey)
         dataSearchWord = [
         'A计划','多啦A梦',
         '阿尔卑斯少女','阿杜',
@@ -141,7 +153,7 @@ class searchWindowUI(xbmcgui.WindowXML):
 
     # get search result list for word
     def getSearchResultList(self):
-        print('nenaTest_ searchWindowUI getSearchResultList: ', self.searchWord)
+        print('nenaTest_ SearchWindowUI getSearchResultList: ', self.searchWord)
         
         title = self.getControl(self.ID_RESULT_SELECT_TITLE)
         title.setLabel(self.searchWord)
