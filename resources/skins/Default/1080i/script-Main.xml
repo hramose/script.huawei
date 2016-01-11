@@ -2,8 +2,6 @@
 <window>
     <include file="Includes_HomeAlt.xml" />
     <allowoverlay>no</allowoverlay>
-    <defaultcontrol>901001</defaultcontrol>
-    <onload>Control.Move(9000,1)</onload>
     <controls>
         <control type="group">
             <visible>![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
