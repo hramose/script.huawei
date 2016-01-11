@@ -67,13 +67,13 @@ class MainMenu(WindowXML, DialogBaseInfo):
 
             list_data.append([
             {'label':u'全部影片', 'icon':'home/movie_more.png', 'type':'channel'},
-            {'label':u'影片2', 'icon':'home/movie3.jpg'},
-            {'label':u'影片3', 'icon':'home/movie3.jpg'},
-            {'label':u'影片4', 'icon':'home/movie3.jpg'},
-            {'label':u'影片5', 'icon':'home/movie3.jpg'},
-            {'label':u'影片6', 'icon':'home/movie3.jpg'},
-            {'label':u'影片7', 'icon':'home/movie3.jpg'},
-            {'label':u'影片8', 'icon':'home/movie3.jpg'}])
+            {'label':u'藏羚王之雪域', 'icon':'home/movie1.jpg', 'label2':u'9.1分'},
+            {'label':u'王朝的女人', 'icon':'home/movie2.jpg', 'label2':u'9.3分'},
+            {'label':u'恶棍天使', 'icon':'home/movie3.jpg', 'label2':u'6.6分'},
+            {'label':u'少年班', 'icon':'home/movie4.jpg', 'label2':u'7.4分'},
+            {'label':u'命中注定', 'icon':'home/movie5.jpg', 'label2':u'8.3分'},
+            {'label':u'恋爱中的城市', 'icon':'home/movie6.jpg', 'label2':u'9.6分'},
+            {'label':u'赤道', 'icon':'home/movie7.jpg', 'label2':u'7.9分'}])
 
             list_data.append([
             {'label':u'全部电视剧', 'icon':'home/tv_more.png', 'type':'channel'},
@@ -124,7 +124,7 @@ class MainMenu(WindowXML, DialogBaseInfo):
                     liz.setProperty('update', item.get('update'))
                     liz.setProperty('subtitle', item.get('subtitle'))
                     liz.setProperty('type', item.get('type'))
-                    liz.setProperty('bg', item.get('bg'))
+                    liz.setProperty('bg', item.get('bg', 'home/bg_home.png'))
                     list_control.addItem(liz)
 
             self.first_launch = False
