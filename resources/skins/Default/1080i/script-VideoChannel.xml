@@ -12,7 +12,7 @@
         </control>
         <control type="image">
             <visible>no</visible>
-            <description>Normal Default Background Image</description>
+            <description>Mockup Image</description>
             <left>0</left>
             <top>0</top>
             <width>1920</width>
@@ -188,7 +188,7 @@
             </content>
         </control>
         <control type="panel" id="2000">
-            <description>Right Context</description>
+            <description>Right Content</description>
             <posx>382</posx>
             <posy>185</posy>
             <width>1460</width>
@@ -204,28 +204,28 @@
                     <height>372</height>
                     <posy>6</posy>
                     <aspectratio>stretch</aspectratio>
-                    <texture diffuse="channel/poster_diffuse.png">$INFO[ListItem.Thumb]</texture>
+                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Thumb]</texture>
                     <visible></visible>
                 </control>
                 <control type="label">
+                    <description>Video Title</description>
                     <posx>20</posx>
-                    <posy>84r</posy>
+                    <posy>88r</posy>
                     <width>200</width>
                     <height>22</height>
-                    <font>noto_font30_m</font>
-                    <textcolor>red</textcolor>
-                    <selectedcolor>green</selectedcolor>
+                    <font>Font-Noto-34b</font>
+                    <textcolor>white</textcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
                 </control>
                 <control type="label">
+                    <description>score</description>
                     <posx>20</posx>
-                    <posy>36r</posy>
+                    <posy>50r</posy>
                     <width>200</width>
                     <height>22</height>
-                    <font>noto_font30_m</font>
-                    <textcolor>red</textcolor>
-                    <selectedcolor>green</selectedcolor>
+                    <font>Font-Noto-22</font>
+                    <textcolor>white</textcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
                 </control>
@@ -237,7 +237,7 @@
                     <height>372</height>
                     <posy>6</posy>
                     <aspectratio>stretch</aspectratio>
-                    <texture diffuse="channel/poster_diffuse.png">$INFO[ListItem.Thumb]</texture>
+                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Thumb]</texture>
                     <visible></visible>
                 </control>
                 <control type="image">
@@ -246,28 +246,28 @@
                     <height>384</height>
                     <posy>1</posy>
                     <aspectratio>stretch</aspectratio>
-                    <texture>channel/poster_border.png</texture>
+                    <texture>common/poster_border.png</texture>
                     <visible></visible>
                 </control>
                 <control type="label">
+                    <description>Video Title</description>
                     <posx>20</posx>
-                    <posy>128r</posy>
+                    <posy>88r</posy>
                     <width>200</width>
                     <height>22</height>
-                    <font>noto_font30_m</font>
-                    <textcolor>red</textcolor>
-                    <selectedcolor>green</selectedcolor>
+                    <font>Font-Noto-34b</font>
+                    <textcolor>white</textcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
                 </control>
                 <control type="label">
+                    <description>score</description>
                     <posx>20</posx>
-                    <posy>54r</posy>
+                    <posy>50r</posy>
                     <width>200</width>
                     <height>22</height>
-                    <font>noto_font30_m</font>
-                    <textcolor>red</textcolor>
-                    <selectedcolor>green</selectedcolor>
+                    <font>Font-Noto-22</font>
+                    <textcolor>white</textcolor>
                     <align>left</align>
                     <info>ListItem.Label</info>
                 </control>
