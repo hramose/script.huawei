@@ -5,7 +5,6 @@
     <controls>
         <control type="group">
             <visible>![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
-            <visible>![[Container(901001).OnNext | Container(901001).OnPrevious] + !IsEmpty(Container(901001).ListItem.Property(bg))]</visible>
             <visible>![[Container(901002).OnNext | Container(901002).OnPrevious] + !IsEmpty(Container(901002).ListItem.Property(bg))]</visible>
             <visible>![[Container(901003).OnNext | Container(901003).OnPrevious] + !IsEmpty(Container(901003).ListItem.Property(bg))]</visible>
             <visible>![[Container(901004).OnNext | Container(901004).OnPrevious] + !IsEmpty(Container(901004).ListItem.Property(bg))]</visible>
@@ -17,12 +16,7 @@
                 <width>1920</width>
                 <height>1080</height>
                 <texture>home/bg_home.png</texture>
-            </control>
-            <control type="image">
-                <width>1920</width>
-                <height>1080</height>
-                <texture>$INFO[Container(901001).ListItem.Property(bg)]</texture>
-                <visible>Control.HasFocus(901001)</visible>
+                <visible>![Control.HasFocus(901002) | Control.HasFocus(901003) | Control.HasFocus(901004) | Control.HasFocus(901005) | Control.HasFocus(901006) | Control.HasFocus(901007)]</visible>
             </control>
             <control type="image">
                 <width>1920</width>
@@ -68,7 +62,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901001) + !IsEmpty(Container(901001).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),)</visible>
                 <label>$INFO[Container(901001).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -415,6 +409,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -480,6 +483,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -564,6 +576,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -629,6 +650,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -713,6 +743,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -778,6 +817,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -862,6 +910,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -927,6 +984,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -1011,6 +1077,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -1076,6 +1151,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -1160,6 +1244,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -1225,6 +1318,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
@@ -1308,6 +1410,15 @@
                                 </control>
                                 <control type="image">
                                     <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
                                     <top>343</top>
                                     <width>86</width>
                                     <height>28</height>
@@ -1373,6 +1484,15 @@
                                     <height>374</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="image">
+                                    <left>12</left>
+                                    <top>5</top>
+                                    <width>268</width>
+                                    <height>374</height>
+                                    <aspectratio>scale</aspectratio>
+                                    <texture>home/poster_black_fo.png</texture>
+                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
                                     <left>12</left>

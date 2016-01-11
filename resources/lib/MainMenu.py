@@ -49,21 +49,21 @@ class MainMenu(WindowXML, DialogBaseInfo):
             list_data = []
             list_controls = [C_LIST1, C_LIST2, C_LIST3, C_LIST4, C_LIST5, C_LIST6, C_LIST7]
             list_data.append([
-            {'label':u'爱你，罗茜', 'icon':'home/movie1.jpg', 'label2':u'89:00[COLOR=B2F0F0F0]/89:00[/COLOR]'},
-            {'label':u'芈月传', 'icon':'home/movie1.jpg', 'label2':u'更新至 20集', 'update':'true'},
-            {'label':u'花千骨', 'icon':'home/movie1.jpg', 'label2':u'播放至 50集'},
-            {'label':u'影片4', 'icon':'home/movie1.jpg'},
-            {'label':u'影片5', 'icon':'home/movie1.jpg'}])
+            {'label':u'冰美人', 'icon':'home/mine1.jpg', 'label2':u'34:00[COLOR=B2F0F0F0]/89:00[/COLOR]'},
+            {'label':u'魔卡行动', 'icon':'home/mine2.jpg', 'label2':u'56:00[COLOR=B2F0F0F0]/110:00[/COLOR]'},
+            {'label':u'美丽的秘密', 'icon':'home/mine3.jpg', 'label2':u'播放至 50集'},
+            {'label':u'狐影', 'icon':'home/mine4.jpg', 'label2':u'播放至 12集'},
+            {'label':u'家国纪事', 'icon':'home/mine5.jpg', 'label2':u'播放至 5集'}])
 
             list_data.append([
-            {'label':u'007幽灵党', 'icon':'home/movie2.jpg', 'label2':u'8.5分', 'subtitle':u'开启邦德时刻 珠宝佳人美到心醉'},
-            {'label':u'影片2', 'icon':'home/movie2.jpg'},
-            {'label':u'影片3', 'icon':'home/movie2.jpg'},
-            {'label':u'影片4', 'icon':'home/movie2.jpg'},
-            {'label':u'影片5', 'icon':'home/movie2.jpg'},
-            {'label':u'影片6', 'icon':'home/movie2.jpg'},
-            {'label':u'影片7', 'icon':'home/movie2.jpg'},
-            {'label':u'影片8', 'icon':'home/movie2.jpg'}])
+            {'label':u'不可思异', 'icon':'home/chosen1.jpg', 'label2':u'9.1分', 'bg':'home/chosen1_bg.jpg', 'subtitle':u'王宝强小沈阳的奇葩科幻'},
+            {'label':u'我的少女时代', 'icon':'home/chosen2.jpg', 'label2':u'8.5分', 'bg':'home/chosen2_bg.jpg', 'subtitle':u'无敌青春爱情大电影'},
+            {'label':u'芈月传', 'icon':'home/chosen3.jpg', 'label2':u'全81集', 'bg':'home/chosen3_bg.jpg', 'subtitle':u'第一太后被芈月演活了'},
+            {'label':u'煮妇神探', 'icon':'home/chosen4.jpg', 'label2':u'更新至 5集', 'bg':'home/chosen4_bg.jpg', 'subtitle':u'李小璐贾乃亮版史密斯夫妇', 'update':'true'},
+            {'label':u'地雷英雄传', 'icon':'home/chosen5.jpg', 'label2':u'更新至 40集', 'bg':'home/chosen5_bg.jpg', 'subtitle':u'宁静变“穆桂英”', 'update':'true'},
+            {'label':u'解救吾先生', 'icon':'home/chosen6.jpg', 'label2':u'9.6分', 'bg':'home/chosen6_bg.jpg', 'subtitle':u'直击明星绑架第一案'},
+            {'label':u'剩者为王', 'icon':'home/chosen7.jpg', 'label2':u'7.8分', 'bg':'home/chosen7_bg.jpg', 'subtitle':u'剩女舒淇恋上鲜肉彭于晏'},
+            {'label':u'前任2:备胎反击战', 'icon':'home/chosen8.jpg', 'label2':u'8.4分', 'bg':'home/chosen8_bg.jpg', 'subtitle':u'郑恺为约郭采洁花样百出'}])
 
             list_data.append([
             {'label':u'全部影片', 'icon':'home/movie_more.png', 'type':'channel'},
@@ -107,13 +107,14 @@ class MainMenu(WindowXML, DialogBaseInfo):
 
             list_data.append([
             {'label':u'全部优惠', 'icon':'home/sale_more.png', 'type':'channel'},
-            {'label':u'影片2', 'icon':'home/movie5.jpg'},
-            {'label':u'影片3', 'icon':'home/movie5.jpg'},
-            {'label':u'影片4', 'icon':'home/movie5.jpg'},
-            {'label':u'影片5', 'icon':'home/movie5.jpg'},
-            {'label':u'影片6', 'icon':'home/movie5.jpg'},
-            {'label':u'影片7', 'icon':'home/movie5.jpg'},
-            {'label':u'影片8', 'icon':'home/movie5.jpg'}])
+            {'label':u'影片2', 'icon':'home/movie7.jpg'},
+            {'label':u'影片3', 'icon':'home/movie7.jpg'},
+            {'label':u'影片4', 'icon':'home/movie7.jpg'},
+            {'label':u'影片5', 'icon':'home/movie7.jpg'},
+            {'label':u'影片6', 'icon':'home/movie7.jpg'},
+            {'label':u'影片7', 'icon':'home/movie7.jpg'},
+            {'label':u'影片8', 'icon':'home/movie7.jpg'}])
+
             for count, control in enumerate(list_controls):
                 list_control = self.getControl(control)
                 for item in list_data[count]:
@@ -123,6 +124,7 @@ class MainMenu(WindowXML, DialogBaseInfo):
                     liz.setProperty('update', item.get('update'))
                     liz.setProperty('subtitle', item.get('subtitle'))
                     liz.setProperty('type', item.get('type'))
+                    liz.setProperty('bg', item.get('bg'))
                     list_control.addItem(liz)
 
             self.first_launch = False
