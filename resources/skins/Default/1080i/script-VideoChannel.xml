@@ -48,21 +48,35 @@
                 <font>Font-Noto-34</font>
             </control>
         </control>
-        <control type="button" id="300">
-            <description>Search Button</description>
-            <posx>80</posx>
-            <posy>182</posy>
+        <control type="group">
+            <left>80</left>
+            <top>182</top>
             <width>188</width>
             <height>68</height>
-            <visible>true</visible>
-            <colordiffuse>FFFFFFFF</colordiffuse>
-            <texturefocus colordiffuse="FFFFAAFF">channel/search_focus.png</texturefocus>
-            <texturenofocus colordiffuse="FFFFAAFF">channel/search.png</texturenofocus>
-            <onclick>XBMC.ActivateWindow(MyVideos)</onclick>
-            <onfocus>-</onfocus>
-            <onunfocus>-</onunfocus>
-            <ondown>1000</ondown>
-            <onright>2000</onright>
+            <description>Search Button</description>
+            <animation effect="zoom" start="100" end="80" tween="back" center="auto" time="200" condition="!StringCompare(Window.Property(search_click),yes)">Conditional</animation>
+            <control type="button" id="300">
+                <width>188</width>
+                <height>68</height>
+                <colordiffuse>FFFFFFFF</colordiffuse>
+                <texturefocus colordiffuse="FFFFAAFF">channel/search.png</texturefocus>
+                <texturenofocus colordiffuse="FFFFAAFF">channel/search.png</texturenofocus>
+                <onclick>CancelAlarm(sclick,silent)</onclick>
+                <onclick>SetProperty(search_click,yes)</onclick>
+                <onclick>AlarmClock(sclick,ClearProperty(search_click),00:00.100,silent)</onclick>
+                <onfocus>-</onfocus>
+                <onunfocus>-</onunfocus>
+                <ondown>1000</ondown>
+                <onright>2000</onright>
+            </control>
+            <control type="image">
+                <animation effect="zoom" start="0" end="100" tween="cubic" center="20,58" time="200" reversible="true">VisibleChange</animation>
+                <posx>0</posx>
+                <posy>0</posy>
+                <aspectratio>stretch</aspectratio>
+                <texture>channel/search_border.png</texture>
+                <visible>Control.HasFocus(300)</visible>
+            </control>
         </control>
         <control type="list" id="1000">
             <description>Left Menu</description>
@@ -200,12 +214,30 @@
             <itemlayout width="292" height="396">
                 <control type="image">
                     <posx>6</posx>
+                    <posy>6</posy>
                     <width>268</width>
                     <height>372</height>
-                    <posy>6</posy>
                     <aspectratio>stretch</aspectratio>
                     <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Thumb]</texture>
                     <visible></visible>
+                </control>
+                <control type="image">
+                    <description>overlay</description>
+                    <right>18</right>
+                    <top>6</top>
+                    <width>66</width>
+                    <height>66</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>common/overlay/$INFO[ListItem.Property(overlay)].png</texture>
+                    <visible></visible>
+                </control>
+                <control type="image">
+                    <posx>6</posx>
+                    <posy>6</posy>
+                    <width>268</width>
+                    <height>372</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>home/poster_black_fo.png</texture>
                 </control>
                 <control type="label">
                     <description>Video Title</description>
@@ -241,13 +273,31 @@
                     <visible></visible>
                 </control>
                 <control type="image">
+                    <description>overlay</description>
+                    <right>18</right>
+                    <top>6</top>
+                    <width>66</width>
+                    <height>66</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>common/overlay/$INFO[ListItem.Property(overlay)].png</texture>
+                    <visible></visible>
+                </control>
+                <control type="image">
                     <posx>0</posx>
+                    <posy>1</posy>
                     <width>280</width>
                     <height>384</height>
-                    <posy>1</posy>
                     <aspectratio>stretch</aspectratio>
                     <texture>common/poster_border.png</texture>
                     <visible></visible>
+                </control>
+                <control type="image">
+                    <posx>6</posx>
+                    <posy>6</posy>
+                    <width>268</width>
+                    <height>372</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>home/poster_black_fo.png</texture>
                 </control>
                 <control type="label">
                     <description>Video Title</description>
@@ -269,44 +319,48 @@
                     <font>Font-Noto-22</font>
                     <textcolor>white</textcolor>
                     <align>left</align>
-                    <info>ListItem.Label</info>
+                    <info>ListItem.Property(overlay)</info>
                 </control>
             </focusedlayout>
             <content>
                 <item id="1">
                     <label>精选</label>
-                    <icon>icon1.png</icon>
                     <thumb>channel/19-4.jpg</thumb>
+                    <property name="overlay">super</property>
                     <onclick>ActivateWindow(Home)</onclick>
-                    <visible>true</visible>
                 </item>
                 <item id="2">
                     <label>喜剧</label>
                     <icon>icon2.png</icon>
                     <thumb>channel/19-3.jpg</thumb>
+                    <property name="overlay">1080</property>
                     <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                 </item>
                 <item id="3">
                     <label>爱情</label>
                     <icon>icon2.png</icon>
                     <thumb>channel/19-4.jpg</thumb>
+                    <property name="overlay">super</property>
                     <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                 </item>
                 <item id="4">
                     <label>科幻</label>
                     <icon>icon2.png</icon>
+                    <property name="overlay">super</property>
                     <thumb>channel/19-3.jpg</thumb>
                     <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                 </item>jhn
                 <item id="5">
                     <label>好莱坞</label>
                     <icon>icon2.png</icon>
+                    <property name="overlay">super</property>
                     <thumb>channel/19-4.jpg</thumb>
                     <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                 </item>
                 <item id="6">
                     <label>专题</label>
                     <icon>icon2.png</icon>
+                    <property name="overlay">1080</property>
                     <thumb>channel/19-3.jpg</thumb>
                     <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                 </item>
