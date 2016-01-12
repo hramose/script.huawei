@@ -11,12 +11,18 @@
             <visible>![[Container(901005).OnNext | Container(901005).OnPrevious] + !IsEmpty(Container(901005).ListItem.Property(bg))]</visible>
             <visible>![[Container(901006).OnNext | Container(901006).OnPrevious] + !IsEmpty(Container(901006).ListItem.Property(bg))]</visible>
             <visible>![[Container(901007).OnNext | Container(901007).OnPrevious] + !IsEmpty(Container(901007).ListItem.Property(bg))]</visible>
-            <animation effect="fade" time="1000">Visible</animation>
+            <animation effect="fade" time="1000" reversible="false">Visible</animation>
             <control type="image">
                 <width>1920</width>
                 <height>1080</height>
                 <texture>home/bg_home.png</texture>
-                <visible>![Control.HasFocus(901002) | Control.HasFocus(901003) | Control.HasFocus(901004) | Control.HasFocus(901005) | Control.HasFocus(901006) | Control.HasFocus(901007)]</visible>
+                <visible>![Control.HasFocus(901001) | Control.HasFocus(901002) | Control.HasFocus(901003) | Control.HasFocus(901004) | Control.HasFocus(901005) | Control.HasFocus(901006) | Control.HasFocus(901007)]</visible>
+            </control>
+            <control type="image">
+                <width>1920</width>
+                <height>1080</height>
+                <texture>$INFO[Container(901001).ListItem.Property(bg)]</texture>
+                <visible>Control.HasFocus(901001)</visible>
             </control>
             <control type="image">
                 <width>1920</width>
@@ -62,7 +68,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),)</visible>
+                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901001).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -72,7 +78,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901001) + !IsEmpty(Container(901001).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901001).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -83,7 +89,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901002) + !IsEmpty(Container(901002).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901002).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -93,7 +99,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901002) + !IsEmpty(Container(901002).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901002).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -104,7 +110,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901003) + !IsEmpty(Container(901003).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901003).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -114,7 +120,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901003) + !IsEmpty(Container(901003).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901003).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -125,7 +131,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901004) + !IsEmpty(Container(901004).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901004).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -135,7 +141,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901004) + !IsEmpty(Container(901004).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901004).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -146,7 +152,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901005) + !IsEmpty(Container(901005).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901005).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -156,7 +162,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901005) + !IsEmpty(Container(901005).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901005).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -167,7 +173,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901006) + !IsEmpty(Container(901006).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901006).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -177,7 +183,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901006) + !IsEmpty(Container(901006).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901006).ListItem.Property(subtitle)]</label>
             </control>
             <control type="label">
@@ -188,7 +194,7 @@
                 <aligny>top</aligny>
                 <font>Font-Noto-72b</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901007) + !IsEmpty(Container(901007).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901007).ListItem.Label]</label>
             </control>
             <control type="label">
@@ -198,7 +204,7 @@
                 <height>30</height>
                 <font>Font-Noto-30l</font>
                 <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901007) + !IsEmpty(Container(901007).ListItem.Property(bg))</visible>
+                <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
                 <label>$INFO[Container(901007).ListItem.Property(subtitle)]</label>
             </control>
         </control>
@@ -403,17 +409,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -480,17 +486,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -539,7 +545,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901001)</visible>
                             </control>
                         </focusedlayout>
@@ -570,17 +576,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -627,19 +633,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901002).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901002).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -647,17 +653,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -706,7 +712,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901002)</visible>
                             </control>
                         </focusedlayout>
@@ -737,17 +743,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -794,19 +800,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901003).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901003).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -814,17 +820,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -873,7 +879,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901003)</visible>
                             </control>
                         </focusedlayout>
@@ -904,17 +910,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -961,19 +967,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901004).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901004).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -981,17 +987,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1040,7 +1046,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901004)</visible>
                             </control>
                         </focusedlayout>
@@ -1071,17 +1077,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1128,19 +1134,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901005).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901005).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -1148,17 +1154,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1207,7 +1213,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901005)</visible>
                             </control>
                         </focusedlayout>
@@ -1238,17 +1244,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1295,19 +1301,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901006).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901006).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -1315,17 +1321,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1374,7 +1380,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901006)</visible>
                             </control>
                         </focusedlayout>
@@ -1404,17 +1410,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                                    <texture diffuse="common/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1461,19 +1467,19 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901007).OnNext">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901007).OnPrevious">
+                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnNext">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnPrevious">
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
                                     <effect type="rotatey" center="146" start="0" end="10" time="100" />
                                     <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
                                 </animation>
@@ -1481,17 +1487,17 @@
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <height>372</height>
+                                    <aspectratio scalediffuse="false">stretch</aspectratio>
                                     <texture diffuse="home/poster_diffuse.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                                 <control type="image">
                                     <left>12</left>
                                     <top>5</top>
                                     <width>268</width>
-                                    <height>374</height>
-                                    <aspectratio>scale</aspectratio>
-                                    <texture>home/poster_black_fo.png</texture>
+                                    <height>372</height>
+                                    <aspectratio>stretch</aspectratio>
+                                    <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
                                 <control type="image">
@@ -1540,7 +1546,7 @@
                                 <width>280</width>
                                 <height>384</height>
                                 <aspectratio>stretch</aspectratio>
-                                <texture>home/list_fo.png</texture>
+                                <texture>common/poster_border.png</texture>
                                 <visible>Control.HasFocus(901007)</visible>
                             </control>
                         </focusedlayout>
