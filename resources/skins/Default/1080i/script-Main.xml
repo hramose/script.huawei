@@ -467,20 +467,20 @@
                         <focusedlayout height="384" width="292">
                             <control type="group">
                                 <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
                                 <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
                                 <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -499,48 +499,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901001).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901001).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -633,21 +663,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901002).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901002).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -666,48 +696,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901002).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901002).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901002).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901002).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901002).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901002).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901002).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -800,21 +860,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901003).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901003).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -833,48 +893,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901003).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901003).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901003).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901003).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901003).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901003).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901003).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -967,21 +1057,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901004).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901004).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -1000,48 +1090,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901004).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901004).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901004).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901004).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901004).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901004).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901004).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -1134,21 +1254,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901005).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901005).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -1167,48 +1287,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901005).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901005).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901005).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901005).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901005).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901005).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901005).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -1301,21 +1451,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901006).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901006).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -1334,48 +1484,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901006).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901006).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901006).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901006).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901006).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901006).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901006).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
@@ -1467,21 +1647,21 @@
                         </itemlayout>
                         <focusedlayout height="384" width="292">
                             <control type="group">
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901007).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Focus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Focus" reversible="true" condition="Container(901007).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnNext">
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnNext">
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="8" time="100" delay="200" />
                                 </animation>
-                                <animation type="Unfocus" reversible="true" condition="Container(901001).OnPrevious">
-                                    <effect type="rotatey" center="146" start="0" end="10" time="100" />
-                                    <effect type="rotatey" center="146" start="0" end="-10" time="100" delay="100" />
+                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnPrevious">
+                                    <effect type="rotatey" center="146" start="0" end="8" time="200" />
+                                    <effect type="rotatey" center="146" start="0" end="-8" time="100" delay="200" />
                                 </animation>
                                 <control type="image">
                                     <left>12</left>
@@ -1500,48 +1680,78 @@
                                     <texture>common/poster_black_fo.png</texture>
                                     <visible>!StringCompare(ListItem.Property(type),channel)</visible>
                                 </control>
-                                <control type="image">
-                                    <left>12</left>
-                                    <top>343</top>
-                                    <width>86</width>
-                                    <height>28</height>
-                                    <texture>home/update.png</texture>
-                                    <visible>!IsEmpty(ListItem.Property(update))</visible>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>300</top>
-                                    <width>255</width>
-                                    <height>30</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>!StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>146</left>
-                                    <top>300</top>
-                                    <width>248</width>
-                                    <height>30</height>
-                                    <align>center</align>
-                                    <font>Font-Noto-36</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <visible>StringCompare(ListItem.Property(type),channel)</visible>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <left>24</left>
-                                    <top>348</top>
-                                    <width>250</width>
-                                    <height>15</height>
-                                    <align>left</align>
-                                    <font>Font-Noto-24l</font>
-                                    <textcolor>FFF0F0F0</textcolor>
-                                    <label>$INFO[ListItem.Label2]</label>
+                                <control type="group">
+                                    <animation type="Focus" reversible="true" condition="Container(901007).OnNext">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Focus" reversible="true" condition="Container(901007).OnPrevious">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901007).OnNext">
+                                        <effect type="slide" start="0" end="10" time="200" />
+                                        <effect type="slide" start="0" end="-10" time="100" delay="200" />
+                                    </animation>
+                                    <animation type="Unfocus" reversible="true" condition="Container(901007).OnPrevious">
+                                        <effect type="slide" start="0" end="-10" time="200" />
+                                        <effect type="slide" start="0" end="10" time="100" delay="200" />
+                                    </animation>
+                                    <control type="image">
+                                        <left>12</left>
+                                        <top>343</top>
+                                        <width>86</width>
+                                        <height>28</height>
+                                        <texture>home/update.png</texture>
+                                        <visible>!IsEmpty(ListItem.Property(update))</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>300</top>
+                                        <width>255</width>
+                                        <height>30</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>!StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>146</left>
+                                        <top>300</top>
+                                        <width>248</width>
+                                        <height>30</height>
+                                        <align>center</align>
+                                        <font>Font-Noto-36</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <visible>StringCompare(ListItem.Property(type),channel)</visible>
+                                        <label>$INFO[ListItem.Label]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>24</left>
+                                        <top>348</top>
+                                        <width>250</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <font>Font-Noto-24l</font>
+                                        <textcolor>FFF0F0F0</textcolor>
+                                        <label>$INFO[ListItem.Label2]</label>
+                                    </control>
                                 </control>
                             </control>
                             <control type="image">
+                                <animation type="Focus" reversible="false" condition="Container(901007).OnNext">
+                                    <effect type="slide" start="-292" end="0" time="300" />
+                                </animation>
+                                <animation type="Focus" reversible="false" condition="Container(901007).OnPrevious">
+                                    <effect type="slide" start="292" end="0" time="300" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnNext">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
+                                <animation type="Unfocus" reversible="true" condition="Container(901007).OnPrevious">
+                                    <effect type="fade" start="100" end="0" />
+                                </animation>
                                 <left>6</left>
                                 <width>280</width>
                                 <height>384</height>
