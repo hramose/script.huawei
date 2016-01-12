@@ -11,7 +11,7 @@
             <visible>![[Container(901005).OnNext | Container(901005).OnPrevious] + !IsEmpty(Container(901005).ListItem.Property(bg))]</visible>
             <visible>![[Container(901006).OnNext | Container(901006).OnPrevious] + !IsEmpty(Container(901006).ListItem.Property(bg))]</visible>
             <visible>![[Container(901007).OnNext | Container(901007).OnPrevious] + !IsEmpty(Container(901007).ListItem.Property(bg))]</visible>
-            <animation effect="fade" time="1000" reversible="false">Visible</animation>
+            <animation effect="fade" time="500" reversible="false">Visible</animation>
             <control type="image">
                 <width>1920</width>
                 <height>1080</height>
@@ -60,152 +60,172 @@
                 <texture>$INFO[Container(901007).ListItem.Property(bg)]</texture>
                 <visible>Control.HasFocus(901007)</visible>
             </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901001).ListItem.Label]</label>
+            <control type="image">
+                <width>1920</width>
+                <height>1080</height>
+                <texture>home/home_black.png</texture>
             </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901001).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901002).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901002).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901003).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901003).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901004).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901004).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901005).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901005).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901006).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901006).ListItem.Property(subtitle)]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>60</top>
-                <width>1800</width>
-                <height>72</height>
-                <aligny>top</aligny>
-                <font>Font-Noto-72b</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901007).ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <left>96</left>
-                <top>180</top>
-                <width>1800</width>
-                <height>30</height>
-                <font>Font-Noto-30l</font>
-                <textcolor>FFF0F0F0</textcolor>
-                <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
-                <label>$INFO[Container(901007).ListItem.Property(subtitle)]</label>
+        </control>
+        <control type="group">
+            <visible>![Container(9000).OnNext | Container(9000).OnPrevious]</visible>
+            <visible>![[Container(901002).OnNext | Container(901002).OnPrevious] + !IsEmpty(Container(901002).ListItem.Property(bg))]</visible>
+            <visible>![[Container(901003).OnNext | Container(901003).OnPrevious] + !IsEmpty(Container(901003).ListItem.Property(bg))]</visible>
+            <visible>![[Container(901004).OnNext | Container(901004).OnPrevious] + !IsEmpty(Container(901004).ListItem.Property(bg))]</visible>
+            <visible>![[Container(901005).OnNext | Container(901005).OnPrevious] + !IsEmpty(Container(901005).ListItem.Property(bg))]</visible>
+            <visible>![[Container(901006).OnNext | Container(901006).OnPrevious] + !IsEmpty(Container(901006).ListItem.Property(bg))]</visible>
+            <visible>![[Container(901007).OnNext | Container(901007).OnPrevious] + !IsEmpty(Container(901007).ListItem.Property(bg))]</visible>
+            <animation type="Visible" reversible="false">
+                <effect type="fade" time="500" />
+                <effect type="slide" start="20,0" end="0,0" time="500" />
+            </animation>
+            <control type="group">
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901001).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901001) + !StringCompare(Container(901001).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901001).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901002).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901002) + !StringCompare(Container(901002).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901002).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901003).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901003) + !StringCompare(Container(901003).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901003).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901004).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901004) + !StringCompare(Container(901004).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901004).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901005).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901005) + !StringCompare(Container(901005).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901005).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901006).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901006) + !StringCompare(Container(901006).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901006).ListItem.Property(subtitle)]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>60</top>
+                    <width>1800</width>
+                    <height>72</height>
+                    <aligny>top</aligny>
+                    <font>Font-Noto-72b</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901007).ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <left>96</left>
+                    <top>180</top>
+                    <width>1800</width>
+                    <height>30</height>
+                    <font>Font-Noto-30l</font>
+                    <textcolor>FFF0F0F0</textcolor>
+                    <visible>Control.HasFocus(901007) + !StringCompare(Container(901007).ListItem.Property(bg),home/bg_home.png)</visible>
+                    <label>$INFO[Container(901007).ListItem.Property(subtitle)]</label>
+                </control>
             </control>
         </control>
         <control type="list" id="9000">
@@ -1781,6 +1801,13 @@
                     <width>268</width>
                     <height>187</height>
                     <texture>home/mine_video.png</texture>
+                </control>
+                <control type="image">
+                    <left>6</left>
+                    <top>6</top>
+                    <width>268</width>
+                    <height>187</height>
+                    <texture>home/mine_video_black.png</texture>
                 </control>
                 <control type="image">
                     <left>208</left>
