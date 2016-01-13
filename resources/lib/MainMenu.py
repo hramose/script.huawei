@@ -147,7 +147,7 @@ class MainMenu(WindowXML, DialogBaseInfo):
         if self.listitem.getProperty("type") == "channel":
             wm.open_channel()
         else:
-            xbmc.executebuiltin('XBMC.StartAndroidActivity("","com.pivos.videoplayer","text/html","data://path={0}")'.format('/storage/external_storage/sda1/test.mp4'))
+            xbmc.executebuiltin('XBMC.StartAndroidActivity("com.pivos.videoplayer","pivos.video.play","text/html","data://path={0}")'.format('/mnt/sda/sda1/test.mp4'))
 
     @ch.click(C_BUTTON_SEARCH)
     def click_search(self):
