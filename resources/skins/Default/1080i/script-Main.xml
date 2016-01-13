@@ -600,6 +600,91 @@
                             </control>
                         </focusedlayout>
                     </control>
+                    <control type="group">
+                        <left>1466</left>
+                        <width>292</width>
+                        <height>384</height>
+                        <visible>Control.HasFocus(901001) | Control.HasFocus(9001) | Control.HasFocus(9002) | Control.HasFocus(9003) | Control.HasFocus(9004)</visible>
+                        <control type="image">
+                            <left>6</left>
+                            <top>6</top>
+                            <width>268</width>
+                            <height>187</height>
+                            <texture>home/mine_video.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>6</left>
+                            <top>6</top>
+                            <width>268</width>
+                            <height>187</height>
+                            <texture>home/mine_video_black.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>208</left>
+                            <top>72</top>
+                            <width>24</width>
+                            <height>24</height>
+                            <texture>home/vip.png</texture>
+                        </control>
+                        <control type="label">
+                            <top>130</top>
+                            <width>280</width>
+                            <height>17</height>
+                            <align>center</align>
+                            <font>Font-Noto-24l</font>
+                            <textcolor>80F0F0F0</textcolor>
+                            <label>有效期至：2016.12.30</label>
+                        </control>
+                        <control type="button" id="9002">
+                            <description>mine video</description>
+                            <onleft>901001</onleft>
+                            <ondown>9003</ondown>
+                            <width>280</width>
+                            <height>199</height>
+                            <font>Font-Noto-42</font>
+                            <align>center</align>
+                            <aligny>top</aligny>
+                            <textoffsety>60</textoffsety>
+                            <texturefocus>home/mine_video_fo.png</texturefocus>
+                            <texturenofocus></texturenofocus>
+                            <textcolor>FFF0F0F0</textcolor>
+                            <selectedcolor>FFF0F0F0</selectedcolor>
+                            <label>薇薇安</label>
+                        </control>
+                        <control type="button" id="9003">
+                            <description>mine video</description>
+                            <onleft>901001</onleft>
+                            <onup>9002</onup>
+                            <ondown>9004</ondown>
+                            <left>6</left>
+                            <top>211</top>
+                            <width>268</width>
+                            <height>72</height>
+                            <font>Font-Noto-36</font>
+                            <align>center</align>
+                            <texturefocus>home/mine_icon_fo.png</texturefocus>
+                            <texturenofocus>home/mine_icon.png</texturenofocus>
+                            <textcolor>FFF0F0F0</textcolor>
+                            <selectedcolor>FFF0F0F0</selectedcolor>
+                            <label>收藏</label>
+                        </control>
+                        <control type="button" id="9004">
+                            <description>mine video</description>
+                            <onleft>901001</onleft>
+                            <onup>9003</onup>
+                            <left>6</left>
+                            <top>301</top>
+                            <width>268</width>
+                            <height>72</height>
+                            <font>Font-Noto-36</font>
+                            <align>center</align>
+                            <texturefocus>home/mine_icon_fo.png</texturefocus>
+                            <texturenofocus>home/mine_icon.png</texturenofocus>
+                            <textcolor>FFF0F0F0</textcolor>
+                            <selectedcolor>FFF0F0F0</selectedcolor>
+                            <label>历史</label>
+                        </control>
+                    </control>
                 </control>
                 <control type="group">
                     <width>1920</width>
@@ -1781,98 +1866,6 @@
                             </control>
                         </focusedlayout>
                     </control>
-                </control>
-            </control>
-            <control type="group">
-                <left>1550</left>
-                <top>580</top>
-                <width>292</width>
-                <height>384</height>
-                <visible>Control.HasFocus(901001) | Control.HasFocus(9001) | Control.HasFocus(9002) | Control.HasFocus(9003) | Control.HasFocus(9004)</visible>
-                <animation type="Visible" reversible="true">
-                    <effect type="fade" start="0" end="100" time="300" />
-                </animation>
-                <animation type="Hidden" reversible="true">
-                    <effect type="fade" start="100" end="0" time="300" />
-                </animation>
-                <control type="image">
-                    <left>6</left>
-                    <top>6</top>
-                    <width>268</width>
-                    <height>187</height>
-                    <texture>home/mine_video.png</texture>
-                </control>
-                <control type="image">
-                    <left>6</left>
-                    <top>6</top>
-                    <width>268</width>
-                    <height>187</height>
-                    <texture>home/mine_video_black.png</texture>
-                </control>
-                <control type="image">
-                    <left>208</left>
-                    <top>72</top>
-                    <width>24</width>
-                    <height>24</height>
-                    <texture>home/vip.png</texture>
-                </control>
-                <control type="label">
-                    <top>130</top>
-                    <width>280</width>
-                    <height>17</height>
-                    <align>center</align>
-                    <font>Font-Noto-24l</font>
-                    <textcolor>80F0F0F0</textcolor>
-                    <label>有效期至：2016.12.30</label>
-                </control>
-                <control type="button" id="9002">
-                    <description>mine video</description>
-                    <onleft>901001</onleft>
-                    <ondown>9003</ondown>
-                    <width>280</width>
-                    <height>199</height>
-                    <font>Font-Noto-42</font>
-                    <align>center</align>
-                    <aligny>top</aligny>
-                    <textoffsety>60</textoffsety>
-                    <texturefocus>home/mine_video_fo.png</texturefocus>
-                    <texturenofocus></texturenofocus>
-                    <textcolor>FFF0F0F0</textcolor>
-                    <selectedcolor>FFF0F0F0</selectedcolor>
-                    <label>薇薇安</label>
-                </control>
-                <control type="button" id="9003">
-                    <description>mine video</description>
-                    <onleft>901001</onleft>
-                    <onup>9002</onup>
-                    <ondown>9004</ondown>
-                    <left>6</left>
-                    <top>211</top>
-                    <width>268</width>
-                    <height>72</height>
-                    <font>Font-Noto-36</font>
-                    <align>center</align>
-                    <texturefocus>home/mine_icon_fo.png</texturefocus>
-                    <texturenofocus>home/mine_icon.png</texturenofocus>
-                    <textcolor>FFF0F0F0</textcolor>
-                    <selectedcolor>FFF0F0F0</selectedcolor>
-                    <label>收藏</label>
-                </control>
-                <control type="button" id="9004">
-                    <description>mine video</description>
-                    <onleft>901001</onleft>
-                    <onup>9003</onup>
-                    <left>6</left>
-                    <top>301</top>
-                    <width>268</width>
-                    <height>72</height>
-                    <font>Font-Noto-36</font>
-                    <align>center</align>
-                    <texturefocus>home/mine_icon_fo.png</texturefocus>
-                    <texturenofocus>home/mine_icon.png</texturenofocus>
-                    <textcolor>FFF0F0F0</textcolor>
-                    <selectedcolor>FFF0F0F0</selectedcolor>
-                    <label>历史</label>
                 </control>
             </control>
         </control>
