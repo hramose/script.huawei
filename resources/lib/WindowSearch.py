@@ -52,7 +52,7 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
             'A', 'B', 'C', 'D', 'E', 'F', 'G',
             'H', 'I', 'J', 'K', 'L', 'M', 'N',
             'O', 'P', 'Q', 'R', 'S', 'T', self.VAL_DEL,
-            '', 'V', 'W', 'X', 'Y', 'Z']
+            'U', 'V', 'W', 'X', 'Y', 'Z']
         self.letters = self.getControl(self.ID_LETTER)
         self.letters.reset()
         for val in dataLetter:
@@ -172,10 +172,7 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
                         if size > 0:
                             lastlineFirst = size - size % 3
                             down = self.getControl(self.ID_DOWN_ICON)
-                            if pos >= lastlineFirst-1:
-                                down.setVisible(False)
-                            else:
-                                down.setVisible(True)
+                            down.setVisible(pos < lastlineFirst-1)
             self.deal_keyboard_focus_down()
 
     @ch.action("left", "*")
@@ -369,7 +366,4 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
         lResultNum.setLabel('搜索结果:' + str(self.resultNum))
 
         down = self.getControl(self.ID_DOWN_ICON)
-        if self.resultNum > 6:
-            down.setVisible(True)
-        else:
-            down.setVisible(False)
+        down.setVisible(self.resultNum > 6)
