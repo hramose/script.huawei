@@ -49,6 +49,7 @@
                 <control type="label">
                     <description>hint text</description>
                     <width>614</width>
+                    <height>30</height>
                     <left>90</left>
                     <top>32</top>
                     <visible>IsEmpty(Control.GetLabel(9201))</visible>
@@ -59,6 +60,7 @@
                 <control type="label" id="9201">
                     <description>edit box</description>
                     <width>614</width>
+                    <height>30</height>
                     <left>32</left>
                     <top>32</top>
                     <font>Font-Noto-62</font>
@@ -278,6 +280,7 @@
                 <control type="label">
                     <description>hot search title</description>
                     <font>Font-Noto-30</font>
+                    <height>30</height>
                     <textcolor>99ffffff</textcolor>
                     <label>热门搜索:</label>
                 </control>
@@ -381,6 +384,7 @@
                 <top>74</top>
                 <left>25</left>
                 <width>604</width>
+                <height>30</height>
                 <font>Font-Noto-30</font>
                 <textcolor>99ffffff</textcolor>
                 <label>选择搜索词:</label>
@@ -400,6 +404,7 @@
                         <top>25</top>
                         <left>25</left>
                         <width>604</width>
+                        <height>40</height>
                         <visible>!Control.hasFocus(9241) + !Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40</font>
                         <label>$INFO[ListItem.label]</label>
@@ -409,6 +414,7 @@
                         <top>25</top>
                         <left>25</left>
                         <width>604</width>
+                        <height>40</height>
                         <visible>Control.hasFocus(9241) | Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40l</font>
                         <label>$INFO[ListItem.label]</label>
@@ -436,6 +442,7 @@
                         <top>25</top>
                         <left>25</left>
                         <width>604</width>
+                        <height>40</height>
                         <visible>!Control.hasFocus(9241) + !Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40</font>
                         <label>$INFO[ListItem.label]</label>
@@ -445,6 +452,7 @@
                         <top>25</top>
                         <left>25</left>
                         <width>604</width>
+                        <height>40</height>
                         <visible>Control.hasFocus(9241) | Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40l</font>
                         <textcolor>FF26b7bc</textcolor>
@@ -476,6 +484,7 @@
                         <control type="label" id="9242">
                             <description>type</description>
                             <width>295</width>
+                            <height>30</height>
                             <font>Font-Noto-30</font>
                             <textcolor>99ffffff</textcolor>
                             <label>电影 </label>
@@ -586,6 +595,7 @@
                         <control type="label" id="9255">
                             <description>type</description>
                             <width>295</width>
+                            <height>30</height>
                             <font>Font-Noto-30</font>
                             <textcolor>99ffffff</textcolor>
                             <label>动漫 </label>
@@ -700,6 +710,7 @@
                     <control type="label" id="9252">
                         <description>now focus item title</description>
                         <width max="600">auto</width>
+                        <height>34</height>
                         <scroll>false</scroll>
                         <font>Font-Noto-34b</font>
                         <textcolor>FF26b7bc</textcolor>
@@ -708,6 +719,7 @@
                     <control type="label" id="9253">
                         <description>result number</description>
                         <width>300</width>
+                        <height>34</height>
                         <font>Font-Noto-34</font>
                         <label>搜索结果: </label>
                     </control>
