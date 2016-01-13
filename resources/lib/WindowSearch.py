@@ -3,21 +3,21 @@
 
 import xbmc
 import xbmcgui
-import time
 from dialogs.DialogBaseInfo import DialogBaseInfo
 from OnClickHandler import OnClickHandler
 ch = OnClickHandler()
 
+
 class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
-    ID_EDIT  = 9201
-    ID_LETTER  = 9202
-    ID_NUMBER  = 9203
+    ID_EDIT = 9201
+    ID_LETTER = 9202
+    ID_NUMBER = 9203
     ID_DEAFAULT_INFO = 9220
-    ID_HOT_SEARCH  = 9221
-    ID_SEARCH_WORD  = 9231
-    ID_RESULT_MOVIE  = 9241
-    ID_RESULT_CARTOON  = 9251
+    ID_HOT_SEARCH = 9221
+    ID_SEARCH_WORD = 9231
+    ID_RESULT_MOVIE = 9241
+    ID_RESULT_CARTOON = 9251
     ID_RESULT_SELECT_TITLE = 9252
     ID_RESULT_NUM = 9253
     ID_MOVIE_NUM = 9242
@@ -28,7 +28,7 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
     ID_DOWN_ICON = 9254
     ID_LETTER_FOCUS = 9204
     ID_NUMBER_FOCUS = 9205
-    
+
     VAL_DEL = 'del'
 
     def __init__(self, *args, **kwargs):
@@ -49,10 +49,10 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
         print('nenaTest_ SearchWindowUI addData: ')
         dataLetter = []
         dataLetter = [
-        'A','B','C','D','E','F','G',
-        'H','I','J','K','L','M','N',
-        'O','P','Q','R','S','T',self.VAL_DEL,
-        'U','V','W','X','Y','Z']
+            'A', 'B', 'C', 'D', 'E', 'F', 'G',
+            'H', 'I', 'J', 'K', 'L', 'M', 'N',
+            'O', 'P', 'Q', 'R', 'S', 'T', self.VAL_DEL,
+            '', 'V', 'W', 'X', 'Y', 'Z']
         self.letters = self.getControl(self.ID_LETTER)
         self.letters.reset()
         for val in dataLetter:
@@ -60,7 +60,9 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
             self.letters.addItem(letter)
 
         dataNumber = []
-        dataNumber = ['1','2','3','4','5','6','7','8','9','0']
+        dataNumber = [
+            '1', '2', '3', '4', '5',
+            '6', '7', '8', '9', '0']
         self.numbers = self.getControl(self.ID_NUMBER)
         self.numbers.reset()
         for val in dataNumber:
@@ -69,9 +71,9 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
         dataHotSearch = []
         dataHotSearch = [
-        {'label':u'杜拉拉追婚记', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'克拉恋人', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'盗墓笔记', 'label2':u'7.9分', 'icon':'home/movie1.jpg'}]
+            {'label': '杜拉拉追婚记', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '克拉恋人', 'label2': '7.4分', 'icon': 'home/movie1.jpg'},
+            {'label': '盗墓笔记', 'label2': '7.9分', 'icon': 'home/movie1.jpg'}]
         self.hotSearch = self.getControl(self.ID_HOT_SEARCH)
         self.hotSearch.reset()
         for val in dataHotSearch:
@@ -101,51 +103,50 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
     def dealSearchWordList(self, nowId):
         dataSearchWord = []
-        val = nowId == self.ID_SEARCH_WORD or nowId == self.ID_SEARCH_BG or nowId == self.ID_LETTER or nowId == self.ID_NUMBER
+        val = nowId in [self.ID_SEARCH_WORD, self.ID_SEARCH_BG, self.ID_LETTER, self.ID_NUMBER]
         if val:
             dataSearchWord = [
-            '[COLOR FF26B7BC]A[/COLOR]计划',
-            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
-            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
-            '[COLOR FF26B7BC]阿[/COLOR]杜',
-            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
-            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
-            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
-            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
-            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜',
-            '[COLOR FF26B7BC]A[/COLOR]计划',
-            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
-            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
-            '[COLOR FF26B7BC]阿[/COLOR]杜',
-            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
-            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
-            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
-            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
-            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜'] 
+                '[COLOR FF26B7BC]A[/COLOR]计划',
+                '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+                '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+                '[COLOR FF26B7BC]阿[/COLOR]杜',
+                '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+                '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+                '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+                '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+                '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜',
+                '[COLOR FF26B7BC]A[/COLOR]计划',
+                '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+                '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+                '[COLOR FF26B7BC]阿[/COLOR]杜',
+                '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+                '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+                '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+                '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+                '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜']
         else:
             dataSearchWord = [
-            'A计划',
-            '多啦A梦',
-            '阿尔卑斯少女',
-            '阿杜',
-            '阿鹦爱说笑',
-            '神奇阿哟',
-            '匈奴王·阿提拉',
-            '阿甘正传',
-            '阿呆与阿瓜',
-            'A计划',
-            '多啦A梦',
-            '阿尔卑斯少女',
-            '阿杜',
-            '阿鹦爱说笑',
-            '神奇阿哟',
-            '匈奴王·阿提拉',
-            '阿甘正传',
-            '阿呆与阿瓜']
+                'A计划',
+                '多啦A梦',
+                '阿尔卑斯少女',
+                '阿杜',
+                '阿鹦爱说笑',
+                '神奇阿哟',
+                '匈奴王·阿提拉',
+                '阿甘正传',
+                '阿呆与阿瓜',
+                'A计划',
+                '多啦A梦',
+                '阿尔卑斯少女',
+                '阿杜',
+                '阿鹦爱说笑',
+                '神奇阿哟',
+                '匈奴王·阿提拉',
+                '阿甘正传',
+                '阿呆与阿瓜']
         size = self.searchWordArr.size()
         for pos in range(size):
             item = self.searchWordArr.getListItem(pos)
-            label = item.getLabel()
             item.setLabel(dataSearchWord[pos])
         if not val:
             selectItem = self.searchWordArr.getListItem(self.searchWordArr.getSelectedPosition())
@@ -187,14 +188,13 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
             x = pos % 7 * 96 + 4
             y = pos / 7 * 110 + 172
             # print 'control_focus_pos ' + str(x) + '_' + str(y)
-            letter.setPosition(x,y)
-            
+            letter.setPosition(x, y)
         elif id == self.ID_NUMBER:
             number = self.getControl(self.ID_NUMBER_FOCUS)
             pos = self.control.getSelectedPosition()
             x = pos * 65 + 18
             y = 653
-            number.setPosition(x,y)
+            number.setPosition(x, y)
 
             self.window.setProperty("needMove", 'yes')
             # self.window.clearProperty("needMove")
@@ -290,7 +290,6 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
     # get search result list for word
     def getSearchResultList(self):
         print('nenaTest_ SearchWindowUI getSearchResultList: ', self.searchWord)
-        
         title = self.getControl(self.ID_RESULT_SELECT_TITLE)
         title.setLabel(self.searchWord)
         self.resultNum = 0
@@ -314,14 +313,13 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
         dataResultMovie = []
         dataResultMovie = [
-        {'label':u'A', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'B', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'C', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'D', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'E', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'F', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'G', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'H', 'label2':u'7.4分', 'icon':'home/movie1.jpg'}]
+            {'label': 'A', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'B', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'C', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'D', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'E', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'F', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': 'G', 'label2': '8.6分', 'icon': 'home/movie1.jpg'}]
         self.resultMovieArr = self.getControl(idMovie)
         self.resultMovieArr.reset()
         for val in dataResultMovie:
@@ -340,19 +338,17 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
         dataResultCartoon = []
         dataResultCartoon = [
-        {'label':u'1', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'2', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'3', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'4', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'5', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'6', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'7', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'8', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'9', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'10', 'label2':u'8.6分', 'icon':'home/movie1.jpg'},
-        {'label':u'11', 'label2':u'7.4分', 'icon':'home/movie1.jpg'},
-        {'label':u'12', 'label2':u'7.9分', 'icon':'home/movie1.jpg'},
-        {'label':u'13', 'label2':u'7.9分', 'icon':'home/movie1.jpg'}]
+            {'label': '1', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '2', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '3', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '4', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '5', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '6', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '7', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '8', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '9', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '10', 'label2': '8.6分', 'icon': 'home/movie1.jpg'},
+            {'label': '11', 'label2': '8.6分', 'icon': 'home/movie1.jpg'}]
         self.resultCartoonArr = self.getControl(idCartoon)
         self.resultCartoonArr.reset()
         for val in dataResultCartoon:
