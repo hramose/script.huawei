@@ -12,7 +12,12 @@
             <left>100</left>
             <width>1920</width>
             <top>135</top>
-            <animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
+            <animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9231) | Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
+            <animation type="WindowOpen" reversible="true">
+                <effect type="slide" start="100,0" end="0,0" time="2000" asing="out" tween="cubic" delay="50"/>
+                <effect type="fade" start="0" end="100" time="500"/>
+                <effect type="zoom" start="90" end="100" center="auto" time="500" delay="50"/>
+            </animation>
             <control type="group">
                 <width>1000</width>
                 <control type="button" id="9211">
@@ -63,12 +68,46 @@
             </control>
             <control type="group" id="9212">
                 <width>1000</width>
+                <control type="image" id="9204">
+                    <description>focus img</description>
+                    <width>100</width>
+                    <height>100</height>
+                    <top>172</top>
+                    <left>4</left>
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="zoom" start="75" end="100" time="800" tween="bounce" center="auto" delay="500"/>
+                    </animation>
+                    <animation effect="fade" start="100" end="0" time="100" condition="!Control.hasFocus(9202)" reversible="true">Conditional</animation>
+                    <animation condition="!IsEmpty(Window.Property(NeedAnimLetter))" type="Conditional" reversible="false">
+                        <effect type="zoom" start="100" end="80" time="100" center="auto"/>
+                        <effect type="zoom" start="100" end="137.5" time="100" center="auto" delay="100"/>
+                        <effect type="zoom" start="100" end="91" time="100" center="auto" delay="200"/>
+                    </animation>
+                    <texture>search/focus.png</texture>
+                </control>
+                <control type="image" id="9205">
+                    <description>focus img</description>
+                    <width>68</width>
+                    <height>68</height>
+                    <top>653</top>
+                    <left>17</left>
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="zoom" start="805" end="100" time="800" tween="bounce" center="auto" delay="500"/>
+                    </animation>
+                    <animation effect="fade" start="100" end="0" time="100" condition="!Control.hasFocus(9203)" reversible="true">Conditional</animation>
+                    <animation condition="!IsEmpty(Window.Property(NeedAnimNumber))" type="Conditional" reversible="false">
+                        <effect type="zoom" start="100" end="80" time="100" center="auto"/>
+                        <effect type="zoom" start="100" end="137.5" time="100" center="auto" delay="100"/>
+                        <effect type="zoom" start="100" end="91" time="100" center="auto" delay="200"/>
+                    </animation>
+                    <texture>search/focus.png</texture>
+                </control>
                 <control type="panel" id="9202">
-                    <description>list of key</description>
-                    <top>195</top>
-                    <left>32</left>
+                    <description>list of letter key</description>
                     <width>700</width>
                     <height>1000</height>
+                    <left>32</left>
+                    <top>195</top>
                     <onleft>noop</onleft>
                     <onright condition="IsEmpty(Control.GetLabel(9201))">9221</onright>
                     <onright condition="!IsEmpty(Control.GetLabel(9201))">9231</onright>
@@ -89,6 +128,7 @@
                         </control>
                         <control type="image">
                             <top>8</top>
+                            <left>-4</left>
                             <height>34</height>
                             <width>50</width>
                             <visible>StringCompare(ListItem.Label, del)</visible>
@@ -100,34 +140,25 @@
                             <width>96</width>
                             <height>50</height>
                             <left>21</left>
-                            <visible>!StringCompare(ListItem.Label, del) + !Control.hasFocus(9202)</visible>
+                            <visible>!StringCompare(ListItem.Label, del)</visible>
                             <align>center</align>
                             <font>Font-Noto-48</font>
                             <label>$INFO[ListItem.Label]</label>
-                        </control>
-                        <control type="label">
-                            <width>96</width>
-                            <height>50</height>
-                            <left>21</left>
-                            <visible>!StringCompare(ListItem.Label, del) + Control.hasFocus(9202)</visible>
-                            <align>center</align>
-                            <font>Font-Noto-48</font>
-                            <label>$INFO[ListItem.Label]</label>
-                            <textcolor>FF00EEEE</textcolor>
                         </control>
                         <control type="image">
                             <top>8</top>
+                            <left>-4</left>
                             <height>34</height>
                             <width>50</width>
                             <visible>StringCompare(ListItem.Label, del)</visible>
-                            <texture>search/search_del_fo.png</texture>
+                            <texture>search/search_del.png</texture>
                         </control>
                     </focusedlayout>
                 </control>
                 <control type="panel" id="9203">
-                    <description>line of number</description>
-                    <left>32</left>
+                    <description>list of number key</description>
                     <top>660</top>
+                    <left>32</left>
                     <width>700</width>
                     <height>1000</height>
                     <onleft>noop</onleft>
@@ -153,20 +184,9 @@
                             <width>65</width>
                             <height>50</height>
                             <left>21</left>
-                            <visible>!Control.hasFocus(9203)</visible>
                             <align>center</align>
                             <font>Font-Noto-42</font>
                             <label>$INFO[ListItem.Label]</label>
-                        </control>
-                        <control type="label">
-                            <width>65</width>
-                            <height>50</height>
-                            <left>21</left>
-                            <visible>Control.hasFocus(9203)</visible>
-                            <align>center</align>
-                            <font>Font-Noto-42</font>
-                            <label>$INFO[ListItem.Label]</label>
-                            <textcolor>FF00EEEE</textcolor>
                         </control>
                     </focusedlayout>
                 </control>
@@ -176,6 +196,11 @@
             <description>search history list and hot search list</description>
             <left>980</left>
             <animation effect="fade" start="100" end="0" time="500" condition="!IsEmpty(Control.GetLabel(9201))" reversible="true">Conditional</animation>
+            <animation type="WindowOpen" reversible="true">
+                <effect type="slide" start="100,0" end="0,0" time="2000" asing="out" tween="cubic" delay="50"/>
+                <effect type="fade" start="0" end="100" time="500"/>
+                <effect type="zoom" start="90" end="100" center="auto" time="500" delay="50"/>
+            </animation>
             <control type="group">
                 <top>135</top>
                 <control type="label">
@@ -348,22 +373,24 @@
             <description>select search word</description>
             <animation effect="slide" start="200,0" end="0,0" time="350" condition="!IsEmpty(Control.GetLabel(9201))" reversible="false">Conditional</animation>
             <animation effect="fade" start="100" end="0" time="500" condition="IsEmpty(Control.GetLabel(9201))" reversible="true" >Conditional</animation>
-            <animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
+            <animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9231) | Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
             <top>60</top>
-            <left>980</left>
-            <!-- <left>132</left> -->
+            <left>955</left>
             <control type="label">
-                <top>74</top>
                 <description>select search title</description>
+                <top>74</top>
+                <left>25</left>
+                <width>604</width>
                 <font>Font-Noto-30</font>
                 <textcolor>99ffffff</textcolor>
                 <label>选择搜索词:</label>
             </control>
             <control type="panel" id="9231">
-                <width>604</width>
+                <width>648</width>
                 <height>805</height>
                 <top>126</top>
                 <onleft>9210</onleft>
+                <onleft></onleft>
                 <onright>9233</onright>
                 <onup>noop</onup>
                 <ondown>noop</ondown>
@@ -371,7 +398,19 @@
                     <control type="label">
                         <description>search word</description>
                         <top>25</top>
+                        <left>25</left>
+                        <width>604</width>
+                        <visible>!Control.hasFocus(9241) + !Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40</font>
+                        <label>$INFO[ListItem.label]</label>
+                    </control>
+                    <control type="label">
+                        <description>search word</description>
+                        <top>25</top>
+                        <left>25</left>
+                        <width>604</width>
+                        <visible>Control.hasFocus(9241) | Control.hasFocus(9251)</visible>
+                        <font>Font-Noto-40l</font>
                         <label>$INFO[ListItem.label]</label>
                     </control>
                     <control type="image">
@@ -379,23 +418,36 @@
                         <width>604</width>
                         <height>2</height>
                         <top>88</top>
+                        <left>25</left>
+                        <visible>IsEmpty(ListItem.Property(needntLine))</visible>
                         <texture>search/split_line.png</texture>
                     </control>
                 </itemlayout>
                 <focusedlayout width="604" height="92" >
-                    <control type="label">
-                        <description>search word</description>
+                    <control type="image">
+                        <description>focus</description>
                         <visible>Control.hasFocus(9231)</visible>
-                        <top>25</top>
-                        <font>Font-Noto-40b</font>
-                        <label>$INFO[ListItem.label]</label>
-                        <textcolor>FF00EEEE</textcolor>
+                        <width>648</width>
+                        <height>86</height>
+                        <texture>search/select_bg_fo.png</texture>
                     </control>
                     <control type="label">
                         <description>search word</description>
-                        <visible>!Control.hasFocus(9231)</visible>
                         <top>25</top>
+                        <left>25</left>
+                        <width>604</width>
+                        <visible>!Control.hasFocus(9241) + !Control.hasFocus(9251)</visible>
                         <font>Font-Noto-40</font>
+                        <label>$INFO[ListItem.label]</label>
+                    </control>
+                    <control type="label">
+                        <description>search word</description>
+                        <top>25</top>
+                        <left>25</left>
+                        <width>604</width>
+                        <visible>Control.hasFocus(9241) | Control.hasFocus(9251)</visible>
+                        <font>Font-Noto-40l</font>
+                        <textcolor>FF26b7bc</textcolor>
                         <label>$INFO[ListItem.label]</label>
                     </control>
                     <control type="image">
@@ -403,6 +455,8 @@
                         <width>604</width>
                         <height>2</height>
                         <top>88</top>
+                        <left>25</left>
+                        <visible>IsEmpty(ListItem.Property(needntLine))</visible>
                         <texture>search/split_line.png</texture>
                     </control>
                 </focusedlayout>
@@ -414,12 +468,11 @@
                     <description>result</description>
                     <top>74</top>
                     <height>860</height>
-                    <itemgap>20</itemgap>
                     <usecontrolcoords>true</usecontrolcoords>
                     <orientation>vertical</orientation>
                     <control type="group" id="9240">
                         <description>result of movie</description>
-                        <height>860</height>
+                        <height>910</height>
                         <control type="label" id="9242">
                             <description>type</description>
                             <width>295</width>
@@ -433,7 +486,7 @@
                             <onleft>9231</onleft>
                             <onright>noop</onright>
                             <onup>noop</onup>
-                            <ondown>9251</ondown>
+                            <ondown>9250</ondown>
                             <width>885</width>
                             <height>860</height>
                             <top>50</top>
@@ -442,7 +495,7 @@
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture diffuse="search/shade.png">$INFO[ListItem.icon]</texture>
                                 </control>
                                 <control type="label">
@@ -450,7 +503,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>295.5</top>
+                                    <top>295</top>
                                     <font>Font-Noto-36</font>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
@@ -459,7 +512,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>342.5</top>
+                                    <top>342</top>
                                     <font>Font-Noto-22</font>
                                     <label>$INFO[ListItem.Label2]</label>
                                 </control>
@@ -467,14 +520,14 @@
                                     <height>66</height>
                                     <width>66</width>
                                     <left>207</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/poster_pay.png</texture>
                                 </control>
                                 <control type="image">
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/shadow.png</texture>
                                 </control>
                             </itemlayout>
@@ -483,7 +536,7 @@
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture diffuse="search/shade.png">$INFO[ListItem.icon]</texture>
                                 </control>
                                 <control type="label">
@@ -491,7 +544,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>295.5</top>
+                                    <top>295</top>
                                     <font>Font-Noto-36</font>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
@@ -500,7 +553,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>342.5</top>
+                                    <top>342</top>
                                     <font>Font-Noto-22</font>
                                     <label>$INFO[ListItem.Label2]</label>
                                 </control>
@@ -508,14 +561,14 @@
                                     <height>66</height>
                                     <width>66</width>
                                     <left>207</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/poster_pay.png</texture>
                                 </control>
                                 <control type="image">
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/shadow.png</texture>
                                 </control>
                                 <control type="image">
@@ -545,14 +598,14 @@
                             <onup>9241</onup>
                             <ondown>noop</ondown>
                             <width>885</width>
-                            <height>1000</height>
+                            <height>860</height>
                             <top>50</top>
                             <itemlayout height="417" width="295">
                                 <control type="image">
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture diffuse="search/shade.png">$INFO[ListItem.icon]</texture>
                                 </control>
                                 <control type="label">
@@ -560,7 +613,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>295.5</top>
+                                    <top>295</top>
                                     <font>Font-Noto-36</font>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
@@ -569,7 +622,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>342.5</top>
+                                    <top>342</top>
                                     <font>Font-Noto-22</font>
                                     <label>$INFO[ListItem.Label2]</label>
                                 </control>
@@ -577,14 +630,14 @@
                                     <height>66</height>
                                     <width>66</width>
                                     <left>207</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/poster_1080.png</texture>
                                 </control>
                                 <control type="image">
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/shadow.png</texture>
                                 </control>
                             </itemlayout>
@@ -593,7 +646,7 @@
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture diffuse="search/shade.png">$INFO[ListItem.icon]</texture>
                                 </control>
                                 <control type="label">
@@ -601,7 +654,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>295.5</top>
+                                    <top>295</top>
                                     <font>Font-Noto-36</font>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
@@ -610,7 +663,7 @@
                                     <width>250</width>
                                     <height>36</height>
                                     <left>21</left>
-                                    <top>342.5</top>
+                                    <top>342</top>
                                     <font>Font-Noto-22</font>
                                     <label>$INFO[ListItem.Label2]</label>
                                 </control>
@@ -618,14 +671,14 @@
                                     <height>66</height>
                                     <width>66</width>
                                     <left>207</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/poster_1080.png</texture>
                                 </control>
                                 <control type="image">
                                     <height>370</height>
                                     <width>266</width>
                                     <left>7</left>
-                                    <top>7.5</top>
+                                    <top>7</top>
                                     <texture>search/shadow.png</texture>
                                 </control>
                                 <control type="image">
@@ -646,11 +699,11 @@
                     <orientation>horizontal</orientation>
                     <control type="label" id="9252">
                         <description>now focus item title</description>
-                        <width>140</width>
+                        <width max="600">auto</width>
                         <scroll>false</scroll>
                         <font>Font-Noto-34b</font>
-                        <textcolor>FF00EEEE</textcolor>
-                        <label>多啦A梦</label>
+                        <textcolor>FF26b7bc</textcolor>
+                        <label></label>
                     </control>
                     <control type="label" id="9253">
                         <description>result number</description>

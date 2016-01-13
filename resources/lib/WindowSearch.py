@@ -3,6 +3,7 @@
 
 import xbmc
 import xbmcgui
+import time
 from dialogs.DialogBaseInfo import DialogBaseInfo
 from OnClickHandler import OnClickHandler
 ch = OnClickHandler()
@@ -24,6 +25,9 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
     ID_RESULT_PAGE = 9233
     ID_SEARCH_BG = 9211
     ID_KEYBOARD = 9212
+    ID_DOWN_ICON = 9254
+    ID_LETTER_FOCUS = 9204
+    ID_NUMBER_FOCUS = 9205
     
     VAL_DEL = 'del'
 
@@ -32,10 +36,11 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
 
     def onInit(self):
         print('nenaTest_ SearchWindowUI onInit: ')
+        self.window = xbmcgui.Window(xbmcgui.getCurrentWindowId())
         self.searchKey = ''
         self.searchWord = ''
         self.TEXT_VAL = True
-        print('nenaTest_ SearchWindowUI onInit: ', self.TEXT_VAL)
+        self.lastFocusId = -1
         self.addData()
         self.setFocusId(self.ID_LETTER)
 
@@ -78,25 +83,146 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
     def onAction(self, action):
         super(SearchWindowUI, self).onAction(action)
         ch.serve_action(action, self.getFocusId(), self)
+        if self.control:
+            nowId = self.control.getId()
+            if -1 == self.lastFocusId:
+                self.lastFocusId = nowId
+            if nowId != self.lastFocusId:
+                self.dealSearchWordListLabelColor(self.lastFocusId, nowId)
+                self.lastFocusId = nowId
+
+    def dealSearchWordListLabelColor(self, lastId, nowId):
+        if nowId == self.ID_SEARCH_WORD and (lastId == self.ID_RESULT_MOVIE or lastId == self.ID_RESULT_CARTOON):
+            self.dealSearchWordList(nowId)
+            self.setFocusId(nowId)
+        elif lastId == self.ID_SEARCH_WORD and (nowId == self.ID_RESULT_MOVIE or nowId == self.ID_RESULT_CARTOON):
+            self.dealSearchWordList(nowId)
+            self.setFocusId(nowId)
+
+    def dealSearchWordList(self, nowId):
+        dataSearchWord = []
+        val = nowId == self.ID_SEARCH_WORD or nowId == self.ID_SEARCH_BG or nowId == self.ID_LETTER or nowId == self.ID_NUMBER
+        if val:
+            dataSearchWord = [
+            '[COLOR FF26B7BC]A[/COLOR]计划',
+            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+            '[COLOR FF26B7BC]阿[/COLOR]杜',
+            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜',
+            '[COLOR FF26B7BC]A[/COLOR]计划',
+            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+            '[COLOR FF26B7BC]阿[/COLOR]杜',
+            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜'] 
+        else:
+            dataSearchWord = [
+            'A计划',
+            '多啦A梦',
+            '阿尔卑斯少女',
+            '阿杜',
+            '阿鹦爱说笑',
+            '神奇阿哟',
+            '匈奴王·阿提拉',
+            '阿甘正传',
+            '阿呆与阿瓜',
+            'A计划',
+            '多啦A梦',
+            '阿尔卑斯少女',
+            '阿杜',
+            '阿鹦爱说笑',
+            '神奇阿哟',
+            '匈奴王·阿提拉',
+            '阿甘正传',
+            '阿呆与阿瓜']
+        size = self.searchWordArr.size()
+        for pos in range(size):
+            item = self.searchWordArr.getListItem(pos)
+            label = item.getLabel()
+            item.setLabel(dataSearchWord[pos])
+        if not val:
+            selectItem = self.searchWordArr.getListItem(self.searchWordArr.getSelectedPosition())
+            selectItem.setLabel('[COLOR FF26B7BC]'+selectItem.getLabel()+'[/COLOR]')
 
     @ch.action("back", "*")
     def exit_script(self):
         self.close()
+
+    @ch.action("up", "*")
+    @ch.action("down", "*")
+    def deal_down_pic_script(self):
+        if self.control:
+            mid = self.control.getId()
+            if mid == self.ID_RESULT_CARTOON:
+                if self.resultNum <= 6:
+                    down = self.getControl(self.ID_DOWN_ICON)
+                    down.setVisible(False)
+                else:
+                    pos = self.control.getSelectedPosition()
+                    if pos != -1:
+                        size = self.control.size()
+                        if size > 0:
+                            lastlineFirst = size - size % 3
+                            down = self.getControl(self.ID_DOWN_ICON)
+                            if pos >= lastlineFirst-1:
+                                down.setVisible(False)
+                            else:
+                                down.setVisible(True)
+            self.deal_keyboard_focus_down()
+
+    @ch.action("left", "*")
+    @ch.action("right", "*")
+    def deal_keyboard_focus_down(self):
+        id = self.control.getId()
+        if id == self.ID_LETTER:
+            letter = self.getControl(self.ID_LETTER_FOCUS)
+            pos = self.control.getSelectedPosition()
+            x = pos % 7 * 96 + 4
+            y = pos / 7 * 110 + 172
+            # print 'control_focus_pos ' + str(x) + '_' + str(y)
+            letter.setPosition(x,y)
+            
+        elif id == self.ID_NUMBER:
+            number = self.getControl(self.ID_NUMBER_FOCUS)
+            pos = self.control.getSelectedPosition()
+            x = pos * 65 + 18
+            y = 653
+            number.setPosition(x,y)
+
+            self.window.setProperty("needMove", 'yes')
+            # self.window.clearProperty("needMove")
+            self.window.setProperty("moveX", str(x))
+            self.window.setProperty("moveY", str(y))
 
     def onClick(self, control_id):
         super(SearchWindowUI, self).onClick(control_id)
         ch.serve(control_id, self)
 
     @ch.click(ID_LETTER)
-    @ch.click(ID_NUMBER)
     def click_keyboard_letter(self):
+        xbmc.executebuiltin('CancelAlarm(clockLetter,silent)')
+        self.window.setProperty('NeedAnimLetter', 'yes')
+        xbmc.executebuiltin('AlarmClock(clockLetter,ClearProperty(NeedAnimLetter),00:01,silent)')
+        self.dealKeyboard()
+
+    @ch.click(ID_NUMBER)
+    def click_keyboard_number(self):
+        xbmc.executebuiltin('CancelAlarm(clockNumber,silent)')
+        self.window.setProperty('NeedAnimNumber', 'yes')
+        xbmc.executebuiltin('AlarmClock(clockNumber,ClearProperty(NeedAnimNumber),00:01,silent)')
         self.dealKeyboard()
 
     @ch.click(ID_SEARCH_WORD)
     def click_search_word(self):
         self.getSearchWord()
         self.getSearchResultList()
-        self.setFocusId(self.ID_RESULT_MOVIE)
 
     @ch.click(ID_SEARCH_BG)
     def click_search_edit(self):
@@ -134,22 +260,32 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
     def getSearchWordList(self):
         print('nenaTest_ SearchWindowUI getSearchWordList: ', self.searchKey)
         dataSearchWord = [
-        'A计划','多啦A梦',
-        '阿尔卑斯少女','阿杜',
-        '阿鹦爱说笑','神奇阿哟',
-        '匈奴王·阿提拉','阿甘正传',
-        '阿呆与阿瓜',
-        'A计划','多啦A梦',
-        '阿尔卑斯少女','阿杜',
-        '阿鹦爱说笑','神奇阿哟',
-        '匈奴王·阿提拉','阿甘正传',
-        '阿呆与阿瓜']
+            '[COLOR FF26B7BC]A[/COLOR]计划',
+            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+            '[COLOR FF26B7BC]阿[/COLOR]杜',
+            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜',
+            '[COLOR FF26B7BC]A[/COLOR]计划',
+            '多啦[COLOR FF26B7BC]A[/COLOR]梦',
+            '[COLOR FF26B7BC]阿[/COLOR]尔卑斯少女',
+            '[COLOR FF26B7BC]阿[/COLOR]杜',
+            '[COLOR FF26B7BC]阿[/COLOR]鹦爱说笑',
+            '神奇[COLOR FF26B7BC]阿[/COLOR]哟',
+            '匈奴王·[COLOR FF26B7BC]阿[/COLOR]提拉',
+            '[COLOR FF26B7BC]阿[/COLOR]甘正传',
+            '[COLOR FF26B7BC]阿[/COLOR]呆与阿瓜']
         self.searchWord = dataSearchWord[0]
         self.searchWordArr = self.getControl(self.ID_SEARCH_WORD)
         self.searchWordArr.reset()
         for val in dataSearchWord:
             word = xbmcgui.ListItem(val)
             self.searchWordArr.addItem(word)
+        lastWord = self.searchWordArr.getListItem(self.searchWordArr.size()-1)
+        lastWord.setProperty('needntLine', 'right')
 
     # get search result list for word
     def getSearchResultList(self):
@@ -157,7 +293,7 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
         
         title = self.getControl(self.ID_RESULT_SELECT_TITLE)
         title.setLabel(self.searchWord)
-        resultNum = 0
+        self.resultNum = 0
 
         idMovie = 0
         idCartoon = 0
@@ -199,7 +335,8 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
             movieTitle.setLabel("电影 " + str(movieSize))
         else:
             movieTitle.setLabel("动漫 " + str(movieSize))
-        resultNum += movieSize
+        movieTitle.setVisible(movieSize != 0)
+        self.resultNum += movieSize
 
         dataResultCartoon = []
         dataResultCartoon = [
@@ -229,8 +366,14 @@ class SearchWindowUI(xbmcgui.WindowXML, DialogBaseInfo):
             cartoonTitle.setLabel("电影 " + str(cartoonSize))
         else:
             cartoonTitle.setLabel("动漫 " + str(cartoonSize))
-        resultNum += cartoonSize
+        cartoonTitle.setVisible(cartoonSize != 0)
+        self.resultNum += cartoonSize
 
         lResultNum = self.getControl(self.ID_RESULT_NUM)
-        lResultNum.setLabel('搜索结果:' + str(resultNum))
-        
+        lResultNum.setLabel('搜索结果:' + str(self.resultNum))
+
+        down = self.getControl(self.ID_DOWN_ICON)
+        if self.resultNum > 6:
+            down.setVisible(True)
+        else:
+            down.setVisible(False)
