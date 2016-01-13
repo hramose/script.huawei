@@ -147,7 +147,6 @@ class MainMenu(WindowXML, DialogBaseInfo):
         if self.listitem.getProperty("type") == "channel":
             wm.open_channel()
         else:
-            xbmc.Player().play(ADDON_PATH + '/resources/skins/Default/media/test.mp4')
             xbmc.executebuiltin('XBMC.StartAndroidActivity("","com.pivos.videoplayer","text/html","data://path={0}")'.format(ADDON_PATH + '/resources/skins/Default/media/test.mp4'))
 
     @ch.click(C_BUTTON_SEARCH)
