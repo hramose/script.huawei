@@ -3,6 +3,7 @@
 from Utils import *
 from Utils import GlobalProperty as GP
 from OnClickHandler import OnClickHandler
+import xbmc
 import xbmcgui
 from BaseClasses import *
 from WindowManager import wm
@@ -19,6 +20,9 @@ C_LIST4 = 901004
 C_LIST5 = 901005
 C_LIST6 = 901006
 C_LIST7 = 901007
+C_LIST_CONTROLS = [C_LIST1, C_LIST2, C_LIST3, C_LIST4, C_LIST5, C_LIST6, C_LIST7]
+
+ADDON_PATH = ADDON.getAddonInfo('path').decode("utf-8")
 
 
 class MainMenu(WindowXML, DialogBaseInfo):
@@ -47,7 +51,6 @@ class MainMenu(WindowXML, DialogBaseInfo):
             self.mainmenu.selectItem(1)
 
             list_data = []
-            list_controls = [C_LIST1, C_LIST2, C_LIST3, C_LIST4, C_LIST5, C_LIST6, C_LIST7]
             list_data.append([
             {'label':u'冰美人', 'icon':'home/mine1.jpg', 'label2':u'34:00[COLOR=B2F0F0F0]/89:00[/COLOR]'},
             {'label':u'魔卡行动', 'icon':'home/mine2.jpg', 'label2':u'56:00[COLOR=B2F0F0F0]/110:00[/COLOR]'},
@@ -115,7 +118,7 @@ class MainMenu(WindowXML, DialogBaseInfo):
             {'label':u'影片7', 'icon':'home/movie7.jpg'},
             {'label':u'影片8', 'icon':'home/movie7.jpg'}])
 
-            for count, control in enumerate(list_controls):
+            for count, control in enumerate(C_LIST_CONTROLS):
                 list_control = self.getControl(control)
                 for item in list_data[count]:
                     liz = xbmcgui.ListItem(item.get('label'))
@@ -139,10 +142,13 @@ class MainMenu(WindowXML, DialogBaseInfo):
         super(MainMenu, self).onClick(control_id)
         ch.serve(control_id, self)
 
-    @ch.click(C_LIST3)
+    @ch.click(C_LIST_CONTROLS)
     def click_channel(self):
         if self.listitem.getProperty("type") == "channel":
             wm.open_channel()
+        else:
+            xbmc.Player().play(ADDON_PATH + '/resources/skins/Default/media/test.mp4')
+            xbmc.executebuiltin('XBMC.StartAndroidActivity("","com.pivos.videoplayer","text/html","data://path={0}")'.format(ADDON_PATH + '/resources/skins/Default/media/test.mp4'))
 
     @ch.click(C_BUTTON_SEARCH)
     def click_search(self):
