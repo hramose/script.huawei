@@ -14,9 +14,9 @@
             <top>135</top>
             <animation effect="slide" start="0,0" end="-848,0" time="350" condition="Control.hasFocus(9231) | Control.hasFocus(9241) | Control.hasFocus(9251)" reversible="true">Conditional</animation>
             <animation type="WindowOpen" reversible="true">
-                <effect type="slide" start="100,0" end="0,0" time="2000" asing="out" tween="cubic" delay="50"/>
-                <effect type="fade" start="0" end="100" time="500"/>
-                <effect type="zoom" start="90" end="100" center="auto" time="500" delay="50"/>
+                <effect type="slide" start="100,0" end="0,0" time="2000" asing="out" tween="cubic" delay="500"/>
+                <effect type="fade" start="0" end="100" time="500" delay="500"/>
+                <effect type="zoom" start="90" end="100" center="auto" time="500" delay="500"/>
             </animation>
             <control type="group">
                 <width>1000</width>
