@@ -53,6 +53,48 @@
                     <textcolor>white</textcolor>
                     <font>Font-Noto-34</font>
                 </control>
+                <control type="label">
+                    <visible></visible>
+                    <posx>295</posx>
+                    <posy>0</posy>
+                    <height>48</height>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <label>全部</label>
+                    <textcolor>white</textcolor>
+                    <font>Font-Noto-30</font>
+                </control>
+                <control type="label">
+                    <visible></visible>
+                    <posx>365</posx>
+                    <posy>0</posy>
+                    <height>48</height>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <label>2153部</label>
+                    <textcolor>grey</textcolor>
+                    <font>Font-Noto-30</font>
+                </control>
+                <control type="image">
+                    <description>filter</description>
+                    <posx>485</posx>
+                    <posy>9</posy>
+                    <aligny>center</aligny>
+                    <width>198</width>
+                    <height>30</height>
+                    <texture>channel/filter_tip.png</texture>
+                </control>
+            </control>
+            <control type="label">
+                <visible></visible>
+                <posx>1750</posx>
+                <posy>70</posy>
+                <height>48</height>
+                <aligny>center</aligny>
+                <align>left</align>
+                <info>System.Time(hh:mm)</info>
+                <textcolor>grey</textcolor>
+                <font>Font-Noto-30</font>
             </control>
             <control type="group">
                 <left>80</left>
@@ -258,7 +300,7 @@
                         <width>268</width>
                         <height>372</height>
                         <aspectratio>stretch</aspectratio>
-                        <texture>home/poster_black_fo.png</texture>
+                        <texture>common/poster_black_fo.png</texture>
                     </control>
                     <control type="label">
                         <description>Video Title</description>
@@ -280,7 +322,7 @@
                         <font>Font-Noto-22</font>
                         <textcolor>white</textcolor>
                         <align>left</align>
-                        <info>ListItem.Label</info>
+                        <info>ListItem.Label2</info>
                     </control>
                 </itemlayout>
                 <focusedlayout width="292" height="396">
@@ -324,7 +366,7 @@
                         <width>268</width>
                         <height>372</height>
                         <aspectratio>stretch</aspectratio>
-                        <texture>home/poster_black_fo.png</texture>
+                        <texture>common/poster_black_fo.png</texture>
                     </control>
                     <control type="label">
                         <description>Video Title</description>
@@ -346,72 +388,73 @@
                         <font>Font-Noto-22</font>
                         <textcolor>white</textcolor>
                         <align>left</align>
-                        <info>ListItem.Property(overlay)</info>
+                        <info>ListItem.Label2</info>
                     </control>
                 </focusedlayout>
                 <content>
                     <item id="1">
-                        <label>精选</label>
+                        <label>最长的旅程</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-4.jpg</thumb>
                         <property name="overlay">super</property>
                         <onclick>ActivateWindow(Home)</onclick>
                     </item>
                     <item id="2">
-                        <label>喜剧</label>
-                        <icon>icon2.png</icon>
+                        <label>曾经</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-3.jpg</thumb>
-                        <property name="overlay">1080</property>
+                        <property name="overlay">1080p</property>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="3">
-                        <label>爱情</label>
-                        <icon>icon2.png</icon>
+                        <label>你好，罗西</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-4.jpg</thumb>
                         <property name="overlay">super</property>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="4">
-                        <label>科幻</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <property name="overlay">super</property>
                         <thumb>channel/19-3.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>jhn
                     <item id="5">
-                        <label>好莱坞</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <property name="overlay">super</property>
                         <thumb>channel/19-4.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="6">
-                        <label>专题</label>
-                        <icon>icon2.png</icon>
-                        <property name="overlay">1080</property>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
+                        <property name="overlay">1080p</property>
                         <thumb>channel/19-3.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="7">
-                        <label>爱情</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-4.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="8">
-                        <label>剧情</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-3.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="8">
-                        <label>剧情</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-3.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
                     <item id="8">
-                        <label>剧情</label>
-                        <icon>icon2.png</icon>
+                        <label>喜剧</label>
+                        <label2>6.5分</label2>
                         <thumb>channel/19-3.jpg</thumb>
                         <onclick>ActivateWindow(MyMusicLibrary)</onclick>
                     </item>
